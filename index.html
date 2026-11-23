@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#080d18">
+  <meta name="theme-color" content="#f4f6f9">
   <meta name="description" content="Market Pulse — globální zprávy a orientační analýza jejich možného dopadu na akcie, komodity, měny a kryptoměny.">
   <title>Market Pulse — News Intelligence</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -290,6 +290,66 @@
     .footer strong { color:#5c6b80; }
     .skeleton { border-color:#e1e6ed; background:linear-gradient(100deg,#f0f3f7 25%,#e5ebf2 40%,#f0f3f7 60%); background-size:200% 100%; }
     @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms!important; transition-duration:.01ms!important; scroll-behavior:auto!important; } }
+
+
+    /* Corporate portfolio workspace */
+    .main-nav{display:flex;align-items:center;gap:7px;margin-right:8px}
+    .main-nav a{padding:8px 11px;border-radius:7px;text-decoration:none;color:#53647a;font-size:11px;font-weight:800}
+    .main-nav a:hover{background:#edf2f7;color:#245b91}
+    .portfolio-section{margin:26px 0 34px;padding:23px;border:1px solid #e1e6ed;border-radius:14px;background:#fff;box-shadow:0 5px 20px rgba(23,38,59,.035)}
+    .portfolio-head{align-items:flex-end;margin-bottom:15px}
+    .portfolio-head .eyebrow{margin-bottom:7px}
+    .portfolio-title{font-size:19px;color:#17263b;margin:0}
+    .portfolio-intro{color:#718096;font-size:11px;margin:5px 0 0}
+    .portfolio-actions{display:flex;gap:8px;flex-wrap:wrap}
+    .secondary-btn{border:1px solid #dce3eb;background:#fff;color:#41536b;border-radius:8px;padding:9px 12px;font-size:10px;font-weight:800}
+    .secondary-btn:hover{border-color:#9eb2ca;color:#245b91;background:#f8fafc}
+    .portfolio-notice{padding:10px 12px;border:1px solid #e4eaf1;background:#f7f9fc;border-radius:8px;color:#637187;font-size:10px;line-height:1.6;margin-bottom:14px}
+    .portfolio-notice strong{color:#34465e}
+    .portfolio-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:13px}
+    .portfolio-stat{border:1px solid #e5eaf0;border-radius:9px;padding:13px;background:#fff;min-width:0}
+    .portfolio-stat span{display:block;color:#748196;font-size:10px;font-weight:700}
+    .portfolio-stat strong{display:block;color:#1e3048;font-size:21px;letter-spacing:-.04em;margin:5px 0 1px;overflow-wrap:anywhere}
+    .portfolio-stat strong.positive{color:#167a59}.portfolio-stat strong.negative{color:#b44752}
+    .portfolio-stat small{color:#8994a3;font-size:9px}
+    .portfolio-charts{display:grid;grid-template-columns:1.45fr 1fr;gap:12px;margin-bottom:12px}
+    .chart-card{background:#fff;border:1px solid #e1e6ed;border-radius:10px;padding:15px;min-width:0}
+    .chart-card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:9px}
+    .chart-card-head h3{font-size:12px;color:#263951;margin:0;font-weight:800}
+    .chart-card-head p{font-size:9px;color:#8290a2;margin:3px 0 0}
+    .chart-badge{font:8px 'DM Mono',monospace;letter-spacing:.1em;color:#59718e;background:#f1f5f9;border:1px solid #e4eaf1;border-radius:5px;padding:5px 7px;white-space:nowrap}
+    .chart-card canvas{display:block;width:100%;height:220px}
+    .chart-footnote{color:#8793a4;font-size:9px;line-height:1.5;margin:4px 0 0}
+    .allocation-legend{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px 10px;margin-top:2px}
+    .legend-item{display:flex;align-items:center;gap:6px;min-width:0;color:#647187;font-size:9px}
+    .legend-dot{width:8px;height:8px;border-radius:2px;flex:0 0 auto}
+    .legend-item span:last-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .portfolio-entry-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:12px;margin-bottom:12px}
+    .entry-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .entry-form label{display:grid;gap:5px;color:#647187;font-size:9px;font-weight:800;min-width:0}
+    .entry-form input,.entry-form select{width:100%;min-width:0;border:1px solid #dfe5ec;background:#fff;border-radius:7px;color:#263951;padding:9px 10px;outline:none;font:11px 'Manrope',sans-serif}
+    .entry-form input:focus,.entry-form select:focus{border-color:#8da9c8;box-shadow:0 0 0 3px rgba(36,91,145,.07)}
+    .entry-form .wide-field{grid-column:1/-1}
+    .form-submit{justify-content:center;padding:9px 12px;font-size:10px;align-self:end;min-height:36px}
+    .form-help,.price-info{color:#8793a4;font-size:9px;line-height:1.55;margin:10px 0 0}
+    .price-form{grid-template-columns:1fr}
+    .price-form .form-submit{margin-top:1px}
+    .transactions-card{padding-bottom:7px}
+    .table-wrap{overflow-x:auto}
+    .transactions-table{width:100%;border-collapse:collapse;white-space:nowrap;font-size:9px}
+    .transactions-table th{text-align:left;color:#8994a3;font-size:8px;letter-spacing:.06em;padding:9px 8px;border-bottom:1px solid #e7ecf2}
+    .transactions-table td{padding:10px 8px;border-bottom:1px solid #eef1f5;color:#4b5c72}
+    .transactions-table tbody tr:last-child td{border-bottom:0}
+    .transactions-table .table-empty{text-align:center;color:#8793a4;padding:24px}
+    .trade-kind{display:inline-block;padding:4px 7px;border-radius:5px;font-size:8px;font-weight:800}
+    .trade-kind.buy{background:#edf7f2;color:#167a59}.trade-kind.sell{background:#fbefef;color:#b44752}
+    .delete-trade{border:0;background:transparent;color:#9aa5b3;font-size:14px;padding:2px 6px}
+    .delete-trade:hover{color:#b44752}
+    .gain-text{color:#167a59!important}.loss-text{color:#b44752!important}
+    .status-line{line-height:1.5}
+    @media(max-width:900px){.portfolio-stats{grid-template-columns:repeat(2,1fr)}.portfolio-entry-grid{grid-template-columns:1fr}.portfolio-charts{grid-template-columns:1fr 1fr}}
+    @media(max-width:650px){.portfolio-section{padding:14px;margin-top:18px}.portfolio-head{align-items:flex-start;flex-direction:column}.portfolio-actions{width:100%}.portfolio-actions button{flex:1}.portfolio-charts{grid-template-columns:1fr}.portfolio-charts .chart-card canvas{height:200px}.main-nav{gap:0;margin-right:0}.main-nav a{padding:7px 8px;font-size:10px}.top-actions{gap:5px}.live-pill{font-size:8px}.portfolio-stats{gap:7px}.portfolio-stat{padding:10px}.portfolio-stat strong{font-size:18px}}
+    @media(max-width:430px){.brand-caption{display:block;font-size:7px}.main-nav{display:none}.portfolio-stats{grid-template-columns:1fr 1fr}.entry-form{gap:8px}.chart-card{padding:12px}.allocation-legend{grid-template-columns:1fr 1fr}}
   </style>
 </head>
 <body>
@@ -300,7 +360,7 @@
         <span><span class="brand-name">MARKET<span>PULSE</span></span><span class="brand-caption">GLOBAL NEWS INTELLIGENCE</span></span>
       </a>
       <div class="top-actions">
-        <span class="subtle-pill">CZ / EN · GLOBÁLNÍ FEED</span>
+        <nav class="main-nav" aria-label="Hlavní navigace"><a href="#portfolioArea">Portfolio</a><a href="#newsArea">Zprávy</a></nav>
         <span class="live-pill"><i class="pulse-dot"></i> LIVE MONITOR</span>
         <button class="icon-btn" id="autoBtn" title="Automatická aktualizace: zapnuto" aria-label="Přepnout automatickou aktualizaci"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7v5h-5M4 17v-5h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.7 9A7 7 0 0 1 18 6l2 6M4 12l2 6a7 7 0 0 0 12.3-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button>
       </div>
@@ -326,6 +386,49 @@
         <div class="stat" style="--glow:rgba(255,201,121,.14)"><div class="stat-label">Uložené zprávy</div><div class="stat-value" id="statSaved">0</div><div class="stat-foot">TVŮJ WATCHLIST</div></div>
       </section>
 
+      <section class="portfolio-section" id="portfolioArea">
+        <div class="section-head portfolio-head">
+          <div><div class="eyebrow">PORTFOLIO / 02</div><h2 class="section-title portfolio-title">Investiční portfolio a historie</h2><p class="portfolio-intro">Evidence vlastních nákupů a prodejů, ručně aktualizované ceny a vývoj hodnoty portfolia.</p></div>
+          <div class="portfolio-actions"><button class="secondary-btn" id="exportPortfolioBtn" type="button">Exportovat zálohu</button><button class="secondary-btn" id="importPortfolioBtn" type="button">Importovat</button><input id="importPortfolioFile" type="file" accept="application/json,.json" hidden></div>
+        </div>
+        <div class="portfolio-notice"><strong>Soukromá evidence:</strong> všechna data zůstávají v úložišti tohoto prohlížeče. Ceny nejsou automaticky načítané z burzy; aktualizuj je ručně. Zálohu si pravidelně exportuj, aby ses k datům dostal i na jiném zařízení.</div>
+        <div class="portfolio-stats">
+          <article class="portfolio-stat"><span>Aktuální hodnota</span><strong id="portfolioValue">0 Kč</strong><small>podle posledních zadaných cen</small></article>
+          <article class="portfolio-stat"><span>Otevřený výsledek</span><strong id="portfolioUnrealized">0 Kč</strong><small>nerealizovaný zisk / ztráta</small></article>
+          <article class="portfolio-stat"><span>Realizovaný výsledek</span><strong id="portfolioRealized">0 Kč</strong><small>uzavřené pozice · průměrná nákupní cena</small></article>
+          <article class="portfolio-stat"><span>Aktivní pozice</span><strong id="portfolioPositions">0</strong><small id="portfolioTrades">0 zaznamenaných transakcí</small></article>
+        </div>
+        <div class="portfolio-charts">
+          <article class="chart-card"><div class="chart-card-head"><div><h3>Vývoj hodnoty portfolia</h3><p>Historie denních záznamů v Kč</p></div><span class="chart-badge">HISTORIE</span></div><canvas id="portfolioHistoryChart" height="220" aria-label="Graf historie hodnoty portfolia"></canvas><p class="chart-footnote">Historie se zaznamenává od chvíle, kdy začneš portfolio používat. Minulé hodnoty se zpětně nedopočítávají.</p></article>
+          <article class="chart-card"><div class="chart-card-head"><div><h3>Alokace aktiv</h3><p>Rozložení aktuální hodnoty</p></div><span class="chart-badge">ALOKACE</span></div><canvas id="portfolioAllocationChart" height="220" aria-label="Graf alokace investic"></canvas><div id="allocationLegend" class="allocation-legend"></div></article>
+        </div>
+        <div class="portfolio-entry-grid">
+          <article class="chart-card"><div class="chart-card-head"><div><h3>Zapsat transakci</h3><p>Přidej nákup nebo prodej do investičního deníku</p></div></div>
+            <form id="tradeForm" class="entry-form">
+              <label>Ticker / symbol<input id="tradeSymbol" required maxlength="18" placeholder="Např. VWCE, AAPL, BTC" autocomplete="off"></label>
+              <label>Název aktiva<input id="tradeName" maxlength="60" placeholder="Např. Vanguard FTSE All-World"></label>
+              <label class="wide-field">Třída aktiv<select id="tradeClass"><option value="Akcie">Akcie</option><option value="ETF">ETF</option><option value="Kryptoměny">Kryptoměny</option><option value="Komodity">Komodity</option><option value="Dluhopisy">Dluhopisy</option><option value="Fondy">Fondy</option><option value="Ostatní">Ostatní</option></select></label>
+              <label>Typ transakce<select id="tradeType"><option value="buy">Nákup</option><option value="sell">Prodej</option></select></label>
+              <label>Datum<input id="tradeDate" type="date" required></label>
+              <label>Množství<input id="tradeQuantity" type="number" min="0.00000001" step="any" required placeholder="1"></label>
+              <label>Cena za kus (Kč)<input id="tradePrice" type="number" min="0.00000001" step="any" required placeholder="1000"></label>
+              <label>Poplatky (Kč)<input id="tradeFees" type="number" min="0" step="any" value="0"></label>
+              <button class="primary-btn form-submit" type="submit">Přidat transakci</button>
+            </form><p class="form-help" id="tradeFormMessage" role="status">Všechny ceny zadávej v Kč. Prodej většího množství, než aktuálně držíš, nebude povolen.</p>
+          </article>
+          <article class="chart-card"><div class="chart-card-head"><div><h3>Aktualizovat tržní cenu</h3><p>Zadej poslední cenu pro přepočet hodnoty a výnosu</p></div></div>
+            <form id="priceForm" class="entry-form price-form">
+              <label>Symbol aktiva<select id="priceSymbol" required><option value="">Nejprve přidej investici</option></select></label>
+              <label>Aktuální cena za kus (Kč)<input id="currentPrice" type="number" min="0.00000001" step="any" required placeholder="Např. 1250"></label>
+              <button class="primary-btn form-submit" type="submit">Uložit cenu</button>
+            </form><div class="price-info" id="priceInfo">Tržní ceny se aktualizují ručně. Bez zadané ceny se pro orientační hodnotu použije průměrná nákupní cena.</div>
+          </article>
+        </div>
+        <article class="chart-card transactions-card"><div class="chart-card-head"><div><h3>Historie transakcí</h3><p>Chronologický záznam všech nákupů a prodejů</p></div><span class="chart-badge" id="transactionCount">0 ZÁZNAMŮ</span></div>
+          <div class="table-wrap"><table class="transactions-table"><thead><tr><th>Datum</th><th>Aktivum</th><th>Typ</th><th>Množství</th><th>Cena / ks</th><th>Poplatky</th><th>Celkem</th><th></th></tr></thead><tbody id="transactionsBody"><tr><td colspan="8" class="table-empty">Zatím nemáš žádné transakce.</td></tr></tbody></table></div>
+        </article>
+      </section>
+
       <section class="radar-wrap">
         <div class="section-head">
           <h2 class="section-title"><span class="mini-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><path d="m12 12 6-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg></span> Tržní radar</h2>
@@ -338,7 +441,7 @@
         </div>
       </section>
 
-      <div class="main-grid">
+      <div class="main-grid" id="newsArea">
         <section class="feed-panel">
           <div class="section-head">
             <h2 class="section-title"><span class="mini-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16M4 10h16M4 15h10M4 20h7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span> Zpravodajský feed</h2>
@@ -388,7 +491,7 @@
 
     <footer class="footer">
       <span><strong>MARKETPULSE</strong> · INDEPENDENT MARKET NEWS MONITOR</span>
-      <span>Články: <strong>GDELT Project</strong> · Analýza: transparentní scénářová heuristika · Bez cenového feedu</span>
+      <span>Články: <strong>GDELT Project</strong> · Dopady: scénářová analýza · Portfolio: lokální evidence, ručně zadávané ceny</span>
     </footer>
   </div>
 
@@ -398,9 +501,10 @@
       const API = 'https://api.gdeltproject.org/api/v2/doc/doc';
       const SEARCH_QUERY = '(inflation OR "interest rates" OR "central bank" OR "Federal Reserve" OR ECB OR recession OR yields OR bonds OR oil OR OPEC OR "natural gas" OR LNG OR gold OR silver OR copper OR wheat OR lithium OR bitcoin OR ethereum OR cryptocurrency OR crypto OR ETF OR tariffs OR sanctions OR war OR conflict OR "trade deal" OR earnings OR stocks OR shares OR semiconductor OR Nvidia OR "artificial intelligence" OR shipping OR supply chain)';
       const STORAGE_KEY = 'marketpulse-saved-v1';
+      const PORTFOLIO_KEY = 'marketpulse-portfolio-v1';
       const $ = (sel, root = document) => root.querySelector(sel);
       const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
-      const state = { articles: [], saved: readSaved(), view: 'all', filter: 'all', search: '', lastFetch: 0, auto: true, timer: null, loading: false };
+      const state = { articles: [], saved: readSaved(), portfolio: readPortfolio(), view: 'all', filter: 'all', search: '', lastFetch: 0, auto: true, timer: null, loading: false };
 
       const CATEGORIES = {
         macro: { label: 'Makro & sazby', color: '#a58cff', icon: '◈', radar: 'Makro & sazby' },
@@ -551,34 +655,65 @@
       async function fetchNews(force = false) {
         if (state.loading) return;
         const sinceLast = Date.now() - state.lastFetch;
-        if (sinceLast < 5000) { setStatus('Zdroj omezuje četnost dotazů. Další aktualizace bude možná za několik sekund.', true); return; }
+        if (state.lastFetch && sinceLast < 5500) { setStatus(`Zdroj GDELT povoluje nejvýše přibližně jeden dotaz za 5 sekund. Zkus to za ${Math.ceil((5500-sinceLast)/1000)} s.`, true); return; }
         state.lastFetch = Date.now();
-        setLoading(true); setStatus('Připojuji se ke globálnímu zpravodajskému feedu…', true);
+        setLoading(true); setStatus('Připojuji se ke zpravodajskému zdroji GDELT…', true);
+        const queries = [SEARCH_QUERY, '(inflation OR central bank OR interest rates OR oil OR gold OR bitcoin OR stocks OR tariffs OR sanctions OR Nvidia)'];
+        let lastError = null, succeeded = false;
         try {
-          const params = new URLSearchParams({ query: SEARCH_QUERY, mode: 'ArtList', format: 'json', maxrecords: '100', timespan: '7d', sort: 'DateDesc' });
-          const response = await fetch(`${API}?${params.toString()}`, { headers: { 'Accept': 'application/json' }, cache: 'no-store' });
-          if (!response.ok) throw new Error(`Zdroj vrátil chybu HTTP ${response.status}.`);
-          const type = response.headers.get('content-type') || '';
-          if (!type.includes('json')) throw new Error('Zdroj nyní nevrátil JSON. Zkus aktualizaci za chvíli.');
-          const data = await response.json();
-          if (!Array.isArray(data.articles)) throw new Error(data.error || 'Ve výsledku nejsou dostupné články.');
-          const seen = new Set();
-          state.articles = data.articles.map(normalizeArticle).filter(a => {
-            if (!a.title || !a.url || a.url === '#' || seen.has(a.id)) return false;
-            seen.add(a.id); return true;
-          }).sort((a,b) => (b.date?.getTime() || 0) - (a.date?.getTime() || 0));
-          state.lastFetch = Date.now();
-          $('#lastUpdated').textContent = new Date().toLocaleTimeString('cs-CZ', { hour: '2-digit', minute: '2-digit' });
-          setStatus(state.articles.length ? `Načteno ${state.articles.length} článků ze světových médií.` : 'Zdroj nevrátil žádné články. Zkus širší filtr nebo pozdější aktualizaci.', true);
-          render();
+          for (let attempt = 0; attempt < queries.length; attempt++) {
+            if (attempt > 0) {
+              setStatus('Původní dotaz se nepodařilo zpracovat. Zkouším jednodušší náhradní vyhledávání…', true);
+              await new Promise(resolve => setTimeout(resolve, 5600));
+            }
+            try {
+              const params = new URLSearchParams({ query: queries[attempt], mode: 'ArtList', format: 'json', maxrecords: '75', timespan: '7d', sort: 'DateDesc' });
+              const controller = new AbortController();
+              const timeout = setTimeout(() => controller.abort(), 18000);
+              let response, raw;
+              try {
+                response = await fetch(`${API}?${params.toString()}`, { headers: { 'Accept': 'application/json, text/plain;q=0.9, */*;q=0.8' }, cache: 'no-store', signal: controller.signal });
+                raw = await response.text();
+              } finally { clearTimeout(timeout); }
+              if (!response.ok) {
+                const detail = raw.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 200);
+                throw new Error(response.status === 429 ? 'GDELT dočasně omezuje počet požadavků (HTTP 429). Počkej alespoň 30–60 sekund a zkus to znovu.' : `GDELT vrátil HTTP ${response.status}${detail ? `: ${detail}` : '.'}`);
+              }
+              let data;
+              try { data = JSON.parse(raw.replace(/^\uFEFF/, '').trim()); }
+              catch {
+                const detail = raw.replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 260);
+                const type = response.headers.get('content-type') || 'neuvedený';
+                throw new Error(`Odpověď GDELT není JSON (Content-Type: ${type}). ${detail || 'Prázdná odpověď.'}`);
+              }
+              if (!data || !Array.isArray(data.articles)) throw new Error(data?.error || data?.message || 'GDELT vrátil JSON, ale neobsahuje pole articles.');
+              const seen = new Set();
+              const articles = data.articles.map(normalizeArticle).filter(a => {
+                if (!a.title || !a.url || a.url === '#' || seen.has(a.id)) return false;
+                seen.add(a.id); return true;
+              }).sort((a,b) => (b.date?.getTime() || 0) - (a.date?.getTime() || 0));
+              if (!articles.length) throw new Error('GDELT odpověděl platným JSON, ale ve zvoleném období nenašel žádné články.');
+              state.articles = articles;
+              try { localStorage.setItem('marketpulse-news-cache-v1', JSON.stringify({ savedAt: Date.now(), articles: articles.map(a => ({...a, date: a.date?.toISOString() || null})) })); } catch {}
+              state.lastFetch = Date.now();
+              $('#lastUpdated').textContent = new Date().toLocaleTimeString('cs-CZ', { hour: '2-digit', minute: '2-digit' });
+              setStatus(`Načteno ${articles.length} článků ze světových médií${attempt ? ' (náhradní vyhledávání)' : ''}.`, true);
+              render(); succeeded = true; break;
+            } catch (attemptError) {
+              lastError = attemptError;
+              if (attemptError?.name === 'AbortError' || /HTTP 429/.test(attemptError.message || '') || attempt === queries.length - 1) break;
+            }
+          }
+          if (!succeeded) throw lastError || new Error('Zpravodajský zdroj nevrátil použitelná data.');
         } catch (error) {
           const hadData = state.articles.length > 0;
-          setStatus(`${error.message || 'Nepodařilo se načíst zprávy.'}${hadData ? ' Zobrazuji poslední úspěšně načtená data.' : ' Zkontroluj připojení a zkus to znovu.'}`, true);
+          const prefix = error?.name === 'AbortError' ? 'Požadavek na zprávy vypršel po 18 sekundách.' : (error instanceof TypeError ? 'Prohlížeč nedostal odpověď ze zdroje GDELT. Může jít o CORS, DNS, blokování v síti nebo dočasný výpadek API — samotné připojení k internetu přitom může fungovat.' : (error.message || 'Nepodařilo se načíst zprávy.'));
+          setStatus(`${prefix}${hadData ? ' Zobrazuji poslední úspěšně načtená data.' : ' Ověř, zda stránku otevíráš přes HTTPS (GitHub Pages), nikoli jako lokální soubor. Portfolio funguje nezávisle.'}`, true);
           if (!hadData) renderEmptyError();
         } finally { setLoading(false); }
       }
       function renderEmptyError() {
-        $('#newsList').innerHTML = `<div class="empty-state"><div class="empty-icon">${iconSvg('cloud-off')}</div><h3>Feed je momentálně nedostupný</h3><p>Zdroj zpráv neodpovídá nebo omezuje požadavky. Zkus aktualizaci za chvíli.</p></div>`;
+        $('#newsList').innerHTML = `<div class="empty-state"><div class="empty-icon">${iconSvg('cloud-off')}</div><h3>Feed je momentálně nedostupný</h3><p>Podrobnosti chyby najdeš ve stavovém řádku nad feedem. Portfolio a uložené investice fungují i bez připojení ke zdroji zpráv.</p></div>`;
         $('#resultsLabel').textContent = 'ČEKÁM NA DATA';
       }
       function iconSvg(name) {
@@ -654,6 +789,115 @@
         if (state.timer) clearInterval(state.timer);
         if (on) state.timer = setInterval(() => fetchNews(false), 15 * 60 * 1000);
       }
+
+      function restoreNewsCache() {
+        try {
+          const cached=JSON.parse(localStorage.getItem('marketpulse-news-cache-v1')||'null');
+          if(!cached||!Array.isArray(cached.articles))return;
+          state.articles=cached.articles.map(a=>({...a,date:a.date?new Date(a.date):null})).filter(a=>a.title&&a.url&&a.impact);
+          if(state.articles.length){$('#lastUpdated').textContent=cached.savedAt?new Date(cached.savedAt).toLocaleTimeString('cs-CZ',{hour:'2-digit',minute:'2-digit'}):'dříve';setStatus(`Zobrazuji ${state.articles.length} dříve načtených zpráv. Zkouším získat aktuální data…`,true);render();}
+        } catch {}
+      }
+
+      // --- Portfolio ledger: all data is stored locally in this browser. ---
+      const localISODate = (date = new Date()) => new Date(date.getTime() - date.getTimezoneOffset() * 60000).toISOString().slice(0,10);
+      const money = value => new Intl.NumberFormat('cs-CZ', { style: 'currency', currency: 'CZK', maximumFractionDigits: 2 }).format(Number(value) || 0);
+      const qtyFmt = value => new Intl.NumberFormat('cs-CZ', { maximumFractionDigits: 8 }).format(Number(value) || 0);
+      function readPortfolio() {
+        try {
+          const raw = JSON.parse(localStorage.getItem(PORTFOLIO_KEY) || '{}');
+          return { transactions: Array.isArray(raw.transactions) ? raw.transactions.filter(x => x && x.id && x.symbol && ['buy','sell'].includes(x.type) && Number(x.quantity)>0 && Number(x.price)>0) : [], prices: raw.prices && typeof raw.prices === 'object' ? raw.prices : {}, snapshots: Array.isArray(raw.snapshots) ? raw.snapshots.filter(x => x && x.date && Number.isFinite(Number(x.value))) : [] };
+        } catch { return { transactions: [], prices: {}, snapshots: [] }; }
+      }
+      function savePortfolio() { try { localStorage.setItem(PORTFOLIO_KEY, JSON.stringify(state.portfolio)); return true; } catch { alert('Prohlížeč nedovolil uložit portfolio. Zkontroluj volné místo nebo nastavení soukromí.'); return false; } }
+      function calculatePortfolio() {
+        const holdings = new Map(); let realized = 0;
+        const ordered = [...state.portfolio.transactions].sort((a,b) => String(a.date).localeCompare(String(b.date)) || String(a.createdAt).localeCompare(String(b.createdAt)));
+        for (const t of ordered) {
+          const h = holdings.get(t.symbol) || {symbol:t.symbol,name:t.name || t.symbol,assetClass:t.assetClass || 'Ostatní',quantity:0,avgCost:0,realized:0};
+          h.name = t.name || h.name; h.assetClass = t.assetClass || h.assetClass;
+          if (t.type === 'buy') {
+            const total = Number(t.quantity)*Number(t.price)+Number(t.fees || 0);
+            h.avgCost = (h.quantity*h.avgCost + total)/(h.quantity+Number(t.quantity));
+            h.quantity += Number(t.quantity);
+          } else if (h.quantity > 0) {
+            const q = Number(t.quantity); const profit = q*Number(t.price)-Number(t.fees || 0)-q*h.avgCost;
+            h.realized += profit; realized += profit; h.quantity -= q;
+            if (h.quantity < 1e-10) { h.quantity=0; h.avgCost=0; }
+          }
+          holdings.set(t.symbol,h);
+        }
+        const open = [...holdings.values()].filter(h => h.quantity > 1e-10).map(h => {
+          const current = Number(state.portfolio.prices[h.symbol]) > 0 ? Number(state.portfolio.prices[h.symbol]) : h.avgCost;
+          return {...h,currentPrice:current,costBasis:h.quantity*h.avgCost,value:h.quantity*current,unrealized:h.quantity*(current-h.avgCost),hasManualPrice:Number(state.portfolio.prices[h.symbol])>0};
+        });
+        return {open,realized,value:open.reduce((n,h)=>n+h.value,0),cost:open.reduce((n,h)=>n+h.costBasis,0),unrealized:open.reduce((n,h)=>n+h.unrealized,0)};
+      }
+      function recordPortfolioSnapshot() {
+        const totals=calculatePortfolio(); const date=localISODate();
+        const idx=state.portfolio.snapshots.findIndex(x=>x.date===date);
+        const snap={date,value:totals.value};
+        if(idx>=0) state.portfolio.snapshots[idx]=snap; else state.portfolio.snapshots.push(snap);
+        state.portfolio.snapshots.sort((a,b)=>a.date.localeCompare(b.date));
+        if(state.portfolio.snapshots.length>365) state.portfolio.snapshots=state.portfolio.snapshots.slice(-365);
+        savePortfolio();
+      }
+      const chartColors=['#245b91','#4f83b7','#8aa6c5','#c0cedd','#6c8b79','#b49a68','#8b83aa'];
+      function drawHistoryChart() {
+        const canvas=$('#portfolioHistoryChart'); if(!canvas) return;
+        const rect=canvas.getBoundingClientRect(); const w=Math.max(280,rect.width); const h=220; const dpr=window.devicePixelRatio||1;
+        canvas.width=Math.round(w*dpr); canvas.height=Math.round(h*dpr); const ctx=canvas.getContext('2d'); ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,w,h);
+        const data=state.portfolio.snapshots.slice(-45); const pad={l:58,r:12,t:14,b:30}; const cw=w-pad.l-pad.r,ch=h-pad.t-pad.b;
+        ctx.font='10px Manrope, sans-serif'; ctx.fillStyle='#8994a3'; ctx.strokeStyle='#edf1f5'; ctx.lineWidth=1;
+        if(!data.length){ctx.fillText('Přidej investici nebo zapiš aktuální cenu.',12,100);return;}
+        const vals=data.map(x=>Number(x.value)); let min=Math.min(...vals),max=Math.max(...vals); if(min===max){const padVal=Math.max(100,Math.abs(max)*.05);min=Math.max(0,min-padVal);max=max+padVal;}
+        const y=v=>pad.t+ch-(v-min)/(max-min)*ch; const x=i=>pad.l+(data.length===1?cw/2:i/(data.length-1)*cw);
+        for(let i=0;i<4;i++){const val=min+(max-min)*i/3, yy=y(val);ctx.beginPath();ctx.moveTo(pad.l,yy);ctx.lineTo(w-pad.r,yy);ctx.stroke();ctx.fillText(new Intl.NumberFormat('cs-CZ',{notation:'compact',maximumFractionDigits:1}).format(val),2,yy+3);}
+        const grad=ctx.createLinearGradient(0,pad.t,0,h-pad.b);grad.addColorStop(0,'rgba(36,91,145,.19)');grad.addColorStop(1,'rgba(36,91,145,0)');
+        ctx.beginPath();data.forEach((d,i)=>i?ctx.lineTo(x(i),y(d.value)):ctx.moveTo(x(i),y(d.value))); if(data.length===1)ctx.lineTo(x(0)+1,y(data[0].value));ctx.lineTo(x(data.length-1),h-pad.b);ctx.lineTo(x(0),h-pad.b);ctx.closePath();ctx.fillStyle=grad;ctx.fill();
+        ctx.beginPath();data.forEach((d,i)=>i?ctx.lineTo(x(i),y(d.value)):ctx.moveTo(x(i),y(d.value)));ctx.strokeStyle='#245b91';ctx.lineWidth=2.3;ctx.lineJoin='round';ctx.stroke();
+        const labels=[data[0],data[Math.floor((data.length-1)/2)],data[data.length-1]];const positions=[pad.l,w/2,w-pad.r];ctx.fillStyle='#8994a3';ctx.font='9px Manrope,sans-serif';labels.forEach((d,i)=>ctx.fillText(new Date(d.date+'T12:00:00').toLocaleDateString('cs-CZ',{day:'numeric',month:'short'}),positions[i]-(i===0?0:i===1?18:42),h-8));
+      }
+      function drawAllocationChart(holdings) {
+        const canvas=$('#portfolioAllocationChart'); const legend=$('#allocationLegend'); if(!canvas||!legend)return;
+        const byClass=new Map();holdings.forEach(h=>byClass.set(h.assetClass,(byClass.get(h.assetClass)||0)+h.value));
+        const entries=[...byClass.entries()].sort((a,b)=>b[1]-a[1]);const rect=canvas.getBoundingClientRect();const w=Math.max(250,rect.width),h=220,dpr=window.devicePixelRatio||1;
+        canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);const ctx=canvas.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);
+        const total=entries.reduce((n,x)=>n+x[1],0);
+        if(!entries.length||!total){ctx.font='10px Manrope,sans-serif';ctx.fillStyle='#8994a3';ctx.fillText('Alokace se zobrazí po přidání investic.',12,108);legend.innerHTML='';return;}
+        const cx=w/2,cy=108,r=Math.min(82,w*.25),inner=r*.62;let angle=-Math.PI/2;
+        entries.forEach((entry,i)=>{const slice=entry[1]/total*Math.PI*2;ctx.beginPath();ctx.arc(cx,cy,r,angle,angle+slice);ctx.arc(cx,cy,inner,angle+slice,angle,true);ctx.closePath();ctx.fillStyle=chartColors[i%chartColors.length];ctx.fill();angle+=slice;});
+        ctx.textAlign='center';ctx.fillStyle='#263951';ctx.font='800 14px Manrope,sans-serif';ctx.fillText(money(total),cx,cy+2);ctx.fillStyle='#8793a4';ctx.font='9px Manrope,sans-serif';ctx.fillText('CELKEM',cx,cy+17);ctx.textAlign='left';
+        legend.innerHTML=entries.map(([name,value],i)=>`<div class="legend-item"><i class="legend-dot" style="background:${chartColors[i%chartColors.length]}"></i><span>${escapeHtml(name)} · ${Math.round(value/total*100)} %</span></div>`).join('');
+      }
+      function renderPortfolio() {
+        const totals=calculatePortfolio();const setMetric=(id,value,cls)=>{const el=$('#'+id);el.textContent=value;el.classList.remove('positive','negative');if(cls)el.classList.add(cls);};
+        setMetric('portfolioValue',money(totals.value));setMetric('portfolioUnrealized',money(totals.unrealized),totals.unrealized>0?'positive':totals.unrealized<0?'negative':'');setMetric('portfolioRealized',money(totals.realized),totals.realized>0?'positive':totals.realized<0?'negative':'');
+        $('#portfolioPositions').textContent=totals.open.length;$('#portfolioTrades').textContent=`${state.portfolio.transactions.length} zaznamenaných transakcí`;
+        $('#transactionCount').textContent=`${state.portfolio.transactions.length} ZÁZNAMŮ`;
+        const select=$('#priceSymbol');const prior=select.value;select.innerHTML=totals.open.length?totals.open.map(h=>`<option value="${escapeHtml(h.symbol)}">${escapeHtml(h.symbol)} — ${escapeHtml(h.name)}</option>`).join(''):'<option value="">Žádná otevřená pozice</option>';if(totals.open.some(h=>h.symbol===prior))select.value=prior;
+        $('#priceInfo').textContent=totals.open.length?`Aktuální ceny byly ručně zadány u ${totals.open.filter(h=>h.hasManualPrice).length} z ${totals.open.length} aktivních pozic. U ostatních se používá průměrná pořizovací cena.`:'Po přidání nákupů se zde zobrazí otevřené pozice.';
+        const tx=[...state.portfolio.transactions].sort((a,b)=>String(b.date).localeCompare(String(a.date))||String(b.createdAt).localeCompare(String(a.createdAt)));
+        $('#transactionsBody').innerHTML=tx.length?tx.map(t=>{const total=Number(t.quantity)*Number(t.price)+(t.type==='buy'?1:-1)*Number(t.fees||0);return `<tr><td>${escapeHtml(new Date(t.date+'T12:00:00').toLocaleDateString('cs-CZ'))}</td><td><strong>${escapeHtml(t.symbol)}</strong><br><span style="color:#8994a3">${escapeHtml(t.name||t.assetClass)}</span></td><td><span class="trade-kind ${t.type}">${t.type==='buy'?'NÁKUP':'PRODEJ'}</span></td><td>${qtyFmt(t.quantity)}</td><td>${money(t.price)}</td><td>${money(t.fees||0)}</td><td>${money(total)}</td><td><button class="delete-trade" type="button" data-delete-trade="${escapeHtml(t.id)}" aria-label="Smazat transakci">×</button></td></tr>`;}).join(''):'<tr><td colspan="8" class="table-empty">Zatím nemáš žádné transakce. Přidej první nákup ve formuláři výše.</td></tr>';
+        drawHistoryChart();drawAllocationChart(totals.open);
+      }
+      function addSnapshotAndRender(){recordPortfolioSnapshot();renderPortfolio();}
+      function exportPortfolio(){const blob=new Blob([JSON.stringify({version:1,exportedAt:new Date().toISOString(),portfolio:state.portfolio},null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`market-pulse-portfolio-${new Date().toISOString().slice(0,10)}.json`;a.click();URL.revokeObjectURL(url);}
+      $('#tradeDate').value=localISODate();
+      $('#tradeForm').addEventListener('submit',e=>{
+        e.preventDefault();const symbol=$('#tradeSymbol').value.trim().toUpperCase().replace(/\s+/g,'');const name=$('#tradeName').value.trim()||symbol;const assetClass=$('#tradeClass').value;const type=$('#tradeType').value;const quantity=Number($('#tradeQuantity').value);const price=Number($('#tradePrice').value);const fees=Number($('#tradeFees').value||0);const date=$('#tradeDate').value;
+        if(!/^[A-Z0-9._-]{1,18}$/.test(symbol)||!date||!Number.isFinite(quantity)||quantity<=0||!Number.isFinite(price)||price<=0||!Number.isFinite(fees)||fees<0){$('#tradeFormMessage').textContent='Zkontroluj symbol, datum, množství, cenu a poplatky.';return;}
+        if(type==='sell'){const held=calculatePortfolio().open.find(h=>h.symbol===symbol)?.quantity||0;if(quantity>held+1e-10){$('#tradeFormMessage').textContent=`Prodej nelze zapsat: držíš ${qtyFmt(held)} ${symbol}, zadáno ${qtyFmt(quantity)}.`;return;}}
+        state.portfolio.transactions.push({id:`t-${Date.now()}-${Math.random().toString(36).slice(2,7)}`,symbol,name,assetClass,type,quantity,price,fees,date,createdAt:new Date().toISOString()});savePortfolio();$('#tradeForm').reset();$('#tradeDate').value=localISODate();$('#tradeFees').value='0';$('#tradeFormMessage').textContent=`Transakce ${type==='buy'?'nákupu':'prodeje'} ${symbol} byla přidána.`;addSnapshotAndRender();
+      });
+      $('#priceForm').addEventListener('submit',e=>{e.preventDefault();const symbol=$('#priceSymbol').value;const price=Number($('#currentPrice').value);if(!symbol||!Number.isFinite(price)||price<=0){$('#priceInfo').textContent='Vyber aktivum a zadej platnou cenu vyšší než nula.';return;}state.portfolio.prices[symbol]=price;savePortfolio();$('#currentPrice').value='';addSnapshotAndRender();$('#priceInfo').textContent=`Cena ${symbol} uložena. Hodnota portfolia a dnešní bod grafu byly přepočítány.`;});
+      $('#transactionsBody').addEventListener('click',e=>{const b=e.target.closest('[data-delete-trade]');if(!b)return;const tx=state.portfolio.transactions.find(t=>t.id===b.dataset.deleteTrade);if(!tx)return;if(!confirm(`Opravdu smazat transakci ${tx.type==='buy'?'nákupu':'prodeje'} ${tx.symbol}?`))return;state.portfolio.transactions=state.portfolio.transactions.filter(t=>t.id!==tx.id);savePortfolio();addSnapshotAndRender();});
+      $('#exportPortfolioBtn').addEventListener('click',exportPortfolio);
+      $('#importPortfolioBtn').addEventListener('click',()=>$('#importPortfolioFile').click());
+      $('#importPortfolioFile').addEventListener('change',async e=>{const file=e.target.files?.[0];if(!file)return;try{const parsed=JSON.parse(await file.text());const imported=parsed.portfolio||parsed;if(!Array.isArray(imported.transactions)||!imported.prices||!Array.isArray(imported.snapshots))throw new Error('Soubor neobsahuje platný export Market Pulse.');if(!confirm(`Import nahradí aktuální portfolio. Importovat ${imported.transactions.length} transakcí?`))return;state.portfolio={transactions:imported.transactions,prices:imported.prices,snapshots:imported.snapshots};savePortfolio();addSnapshotAndRender();alert('Portfolio bylo importováno.');}catch(err){alert(`Import se nepodařil: ${err.message}`);}finally{e.target.value='';}});
+      window.addEventListener('resize',()=>{const t=calculatePortfolio();drawHistoryChart();drawAllocationChart(t.open);});
+      addSnapshotAndRender();
+      restoreNewsCache();
 
       $('#refreshBtn').addEventListener('click', () => fetchNews(true));
       $('#autoBtn').addEventListener('click', () => setAuto(!state.auto));
