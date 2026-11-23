@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080d18">
+  <meta name="description" content="Market Pulse — globální zprávy a orientační analýza jejich možného dopadu na akcie, komodity, měny a kryptoměny.">
+  <title>Market Pulse — News Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #080d18;
+      --panel: rgba(17, 25, 43, .86);
+      --panel-2: #111b2d;
+      --line: rgba(151, 177, 220, .12);
+      --line-strong: rgba(93, 230, 255, .25);
+      --text: #eaf2ff;
+      --muted: #8c9bb7;
+      --muted-2: #60708d;
+      --cyan: #5de6ff;
+      --cyan-2: #25bbdc;
+      --violet: #a28cff;
+      --green: #55e6ad;
+      --red: #ff7d91;
+      --amber: #ffc979;
+      --radius: 18px;
+      --shadow: 0 18px 60px rgba(0,0,0,.22);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 18% -8%, rgba(34, 119, 163, .22), transparent 38%),
+        radial-gradient(ellipse at 92% 5%, rgba(105, 71, 184, .16), transparent 31%),
+        linear-gradient(180deg, #0a1020 0%, var(--bg) 52%, #080d17 100%);
+      font-family: 'Manrope', system-ui, sans-serif;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1;
+      opacity: .23;
+      background-image: linear-gradient(rgba(111,145,189,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(111,145,189,.055) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: linear-gradient(to bottom, black, transparent 88%);
+    }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    a { color: inherit; }
+    .shell { width: min(1440px, calc(100% - 52px)); margin: 0 auto; }
+    .topbar { height: 76px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .brand-mark { width: 36px; height: 36px; border: 1px solid rgba(93,230,255,.43); border-radius: 11px; display: grid; place-items: center; background: linear-gradient(145deg, rgba(93,230,255,.16), rgba(162,140,255,.12)); box-shadow: 0 0 26px rgba(93,230,255,.1), inset 0 0 18px rgba(93,230,255,.08); }
+    .brand-mark svg { width: 21px; height: 21px; }
+    .brand-name { font-size: 14px; font-weight: 800; letter-spacing: .14em; }
+    .brand-name span { color: var(--cyan); }
+    .brand-caption { color: var(--muted-2); font: 9px 'DM Mono', monospace; letter-spacing: .18em; margin-top: 1px; }
+    .top-actions { display: flex; align-items: center; gap: 12px; }
+    .live-pill, .subtle-pill { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); background: rgba(15,25,43,.68); border-radius: 99px; padding: 7px 11px; color: #b7c7df; font: 10px 'DM Mono', monospace; letter-spacing: .08em; }
+    .pulse-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 11px var(--green); animation: pulse 2s infinite; }
+    @keyframes pulse { 50% { box-shadow: 0 0 3px rgba(85,230,173,.25); opacity: .55; } }
+    .icon-btn { width: 36px; height: 36px; border: 1px solid var(--line); border-radius: 11px; color: #aab9d2; background: rgba(18,28,47,.72); display: grid; place-items: center; transition: .2s; }
+    .icon-btn:hover { border-color: var(--line-strong); color: var(--cyan); transform: translateY(-1px); }
+    .icon-btn svg { width: 16px; height: 16px; }
+    .hero { padding: 42px 0 26px; display: flex; justify-content: space-between; align-items: end; gap: 30px; }
+    .eyebrow { color: var(--cyan); font: 10px 'DM Mono', monospace; letter-spacing: .22em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .eyebrow::before { content: ""; width: 24px; height: 1px; background: var(--cyan); box-shadow: 0 0 9px var(--cyan); }
+    h1 { font-size: clamp(31px, 4vw, 49px); line-height: 1.08; letter-spacing: -.055em; margin: 0; font-weight: 800; }
+    h1 .gradient { background: linear-gradient(95deg, #f2f6ff 12%, #86eaff 62%, #b5a4ff 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero-copy { color: var(--muted); margin: 12px 0 0; max-width: 570px; font-size: 13px; }
+    .hero-right { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; flex-shrink: 0; }
+    .update-line { color: var(--muted-2); font: 10px 'DM Mono', monospace; display: flex; align-items: center; gap: 8px; }
+    .update-line strong { color: #c2d3ed; font-weight: 500; }
+    .primary-btn { border: 1px solid rgba(93,230,255,.48); color: #07151d; font-weight: 800; background: linear-gradient(110deg, #68eaff, #82d5ff); padding: 10px 15px; border-radius: 10px; display: inline-flex; align-items: center; gap: 9px; box-shadow: 0 5px 24px rgba(48,195,231,.12); transition: .2s; }
+    .primary-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(48,195,231,.23); }
+    .primary-btn:disabled { opacity: .55; cursor: wait; transform: none; }
+    .primary-btn svg { width: 15px; height: 15px; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 8px 0 28px; }
+    .stat { border: 1px solid var(--line); background: linear-gradient(145deg, rgba(19,31,52,.86), rgba(13,21,37,.78)); border-radius: 14px; min-height: 96px; padding: 15px 17px; position: relative; overflow: hidden; box-shadow: 0 8px 26px rgba(0,0,0,.09); }
+    .stat::after { content: ""; position: absolute; width: 90px; height: 90px; right: -34px; bottom: -54px; border-radius: 50%; background: var(--glow, rgba(93,230,255,.15)); filter: blur(4px); }
+    .stat-label { color: var(--muted); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+    .stat-value { font-size: 25px; font-weight: 800; letter-spacing: -.04em; margin-top: 5px; line-height: 1.15; }
+    .stat-foot { color: var(--muted-2); font: 10px 'DM Mono', monospace; margin-top: 5px; }
+    .section-head { display: flex; justify-content: space-between; align-items: center; gap: 15px; margin: 0 0 14px; }
+    .section-title { margin: 0; font-size: 14px; font-weight: 800; letter-spacing: -.01em; display: flex; align-items: center; gap: 9px; }
+    .section-title .mini-icon { color: var(--cyan); display: inline-grid; place-items: center; }
+    .section-title svg { width: 16px; height: 16px; }
+    .section-kicker { font: 9px 'DM Mono', monospace; letter-spacing: .14em; color: var(--muted-2); text-transform: uppercase; }
+    .radar-wrap { border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; background: linear-gradient(110deg, rgba(17,28,48,.91), rgba(14,22,39,.87)); box-shadow: var(--shadow); margin-bottom: 29px; position: relative; overflow: hidden; }
+    .radar-wrap::before { content: ""; position: absolute; right: 0; top: 0; width: 36%; height: 100%; pointer-events: none; background: radial-gradient(ellipse at 90% 0%, rgba(67,177,209,.09), transparent 68%); }
+    .radar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 11px; position: relative; }
+    .radar-card { border: 1px solid rgba(144,170,209,.11); background: rgba(7,14,26,.45); border-radius: 13px; padding: 13px 14px; min-height: 112px; }
+    .radar-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+    .radar-name { color: #bac9e0; font-size: 11px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+    .radar-icon { width: 25px; height: 25px; display: grid; place-items: center; border-radius: 8px; color: var(--cyan); background: rgba(93,230,255,.09); font-size: 13px; }
+    .radar-count { color: var(--cyan); font: 11px 'DM Mono', monospace; }
+    .radar-desc { color: var(--muted); font-size: 11px; margin: 10px 0 9px; min-height: 32px; }
+    .meter { width: 100%; height: 3px; border-radius: 9px; background: rgba(134,157,194,.13); overflow: hidden; }
+    .meter > span { display: block; height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, var(--cyan-2), var(--violet)); transition: width .5s; }
+    .main-grid { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 18px; align-items: start; padding-bottom: 50px; }
+    .feed-panel { min-width: 0; }
+    .feed-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; margin-bottom: 13px; }
+    .tabs { display: flex; gap: 5px; padding: 4px; border: 1px solid var(--line); background: rgba(11,18,31,.72); border-radius: 11px; }
+    .tab { border: 0; background: transparent; color: var(--muted); border-radius: 8px; padding: 7px 12px; font-size: 11px; font-weight: 700; transition: .2s; }
+    .tab.active { color: #dcf8ff; background: rgba(75,196,225,.15); box-shadow: inset 0 0 0 1px rgba(93,230,255,.12); }
+    .tab .tab-num { color: var(--muted-2); font: 10px 'DM Mono', monospace; margin-left: 5px; }
+    .searchbox { display: flex; align-items: center; gap: 8px; min-width: 220px; flex: 1; max-width: 310px; padding: 9px 11px; border: 1px solid var(--line); border-radius: 10px; background: rgba(12,20,34,.8); color: var(--muted); }
+    .searchbox:focus-within { border-color: rgba(93,230,255,.45); box-shadow: 0 0 0 3px rgba(93,230,255,.06); }
+    .searchbox svg { width: 15px; height: 15px; flex: 0 0 auto; }
+    .searchbox input { width: 100%; border: 0; outline: 0; background: transparent; color: var(--text); font-size: 11px; min-width: 0; }
+    .searchbox input::placeholder { color: #65738c; }
+    .filters { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; margin-bottom: 15px; }
+    .filter-chip { border: 1px solid rgba(137,161,200,.14); color: #9aabc6; background: rgba(17,27,45,.55); padding: 6px 10px; border-radius: 8px; font-size: 10px; transition: .2s; }
+    .filter-chip:hover, .filter-chip.active { border-color: rgba(93,230,255,.34); color: #d8f8ff; background: rgba(56,158,191,.13); }
+    .feed-meta { display: flex; justify-content: space-between; color: var(--muted-2); font: 9px 'DM Mono', monospace; letter-spacing: .06em; margin: 0 2px 9px; }
+    .news-list { display: grid; gap: 10px; }
+    .news-card { border: 1px solid var(--line); background: linear-gradient(120deg, rgba(17,27,46,.91), rgba(13,21,36,.9)); border-radius: 14px; padding: 16px 17px 14px; position: relative; overflow: hidden; transition: border-color .2s, transform .2s, background .2s; }
+    .news-card:hover { border-color: rgba(93,230,255,.27); transform: translateY(-1px); background: linear-gradient(120deg, rgba(20,34,56,.96), rgba(14,24,41,.94)); }
+    .news-card::before { content: ""; position: absolute; left: 0; top: 15px; bottom: 15px; width: 2px; border-radius: 2px; background: var(--accent, var(--cyan)); opacity: .8; }
+    .news-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+    .news-source { display: flex; align-items: center; gap: 7px; min-width: 0; color: #7f91ad; font: 9px 'DM Mono', monospace; letter-spacing: .06em; text-transform: uppercase; }
+    .source-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent, var(--cyan)); box-shadow: 0 0 7px var(--accent, var(--cyan)); flex: 0 0 auto; }
+    .news-time { color: #71819d; white-space: nowrap; font: 9px 'DM Mono', monospace; }
+    .news-title { font-size: 14px; line-height: 1.45; letter-spacing: -.015em; font-weight: 800; margin: 0 0 9px; color: #e8f0ff; }
+    .news-title a { text-decoration: none; }
+    .news-title a:hover { color: #92edff; }
+    .news-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 11px; }
+    .tag { font-size: 9px; font-weight: 700; padding: 4px 7px; border-radius: 6px; color: #a4b3cc; background: rgba(119,144,184,.09); border: 1px solid rgba(131,157,199,.1); }
+    .tag.category { color: var(--tag-color, #8aeaff); border-color: color-mix(in srgb, var(--tag-color, #8aeaff) 21%, transparent); background: color-mix(in srgb, var(--tag-color, #8aeaff) 8%, transparent); }
+    .impact-box { border: 1px solid rgba(122,151,194,.1); background: rgba(6,12,23,.34); border-radius: 10px; padding: 10px 11px; }
+    .impact-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 5px; }
+    .impact-label { color: var(--cyan); font: 9px 'DM Mono', monospace; letter-spacing: .12em; text-transform: uppercase; display: flex; align-items: center; gap: 7px; }
+    .impact-symbol { color: var(--cyan); font-size: 12px; line-height: 1; }
+    .impact-symbol { color: var(--cyan); font-size: 12px; line-height: 1; }
+    .confidence { color: #73839e; font: 9px 'DM Mono', monospace; }
+    .impact-text { color: #a9b8d0; font-size: 10px; line-height: 1.55; margin: 0; }
+    .asset-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+    .asset { display: inline-flex; align-items: center; gap: 5px; border-radius: 6px; padding: 4px 7px; background: rgba(117,141,178,.09); color: #b7c8e2; font-size: 9px; border: 1px solid rgba(117,141,178,.1); }
+    .asset.up { color: var(--green); border-color: rgba(85,230,173,.18); background: rgba(85,230,173,.07); }
+    .asset.down { color: var(--red); border-color: rgba(255,125,145,.18); background: rgba(255,125,145,.07); }
+    .asset.mixed { color: var(--amber); border-color: rgba(255,201,121,.18); background: rgba(255,201,121,.07); }
+    .news-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 10px; }
+    .news-bottom-left { display: flex; gap: 12px; color: #697994; font: 9px 'DM Mono', monospace; min-width: 0; }
+    .news-bottom-left span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .save-btn { border: 0; background: transparent; color: #7787a1; padding: 4px; display: inline-flex; align-items: center; gap: 5px; font-size: 9px; flex-shrink: 0; }
+    .save-btn:hover, .save-btn.saved { color: var(--cyan); }
+    .save-btn svg { width: 14px; height: 14px; }
+    .sidebar { display: grid; gap: 13px; position: sticky; top: 18px; }
+    .side-card { border: 1px solid var(--line); background: linear-gradient(145deg, rgba(18,29,49,.9), rgba(12,20,35,.88)); border-radius: 15px; padding: 16px; }
+    .side-title { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 11px; font-weight: 800; margin: 0 0 13px; }
+    .side-title span { color: var(--muted-2); font: 9px 'DM Mono', monospace; font-weight: 400; }
+    .theme-list { display: grid; gap: 12px; }
+    .theme-row { display: grid; grid-template-columns: 1fr auto; gap: 7px 10px; align-items: center; }
+    .theme-name { color: #aebcd2; font-size: 10px; }
+    .theme-value { color: #7f91ad; font: 10px 'DM Mono', monospace; }
+    .theme-row .meter { grid-column: 1 / -1; height: 3px; }
+    .side-note { color: var(--muted); font-size: 10px; line-height: 1.65; margin: 0; }
+    .note-icon { display: inline-grid; place-items: center; width: 27px; height: 27px; border-radius: 8px; color: var(--amber); background: rgba(255,201,121,.1); margin-bottom: 9px; }
+    .note-icon svg { width: 14px; height: 14px; }
+    .source-line { display: flex; align-items: center; gap: 9px; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line); color: #899ab5; font-size: 10px; }
+    .source-line a { color: #8aeaff; text-decoration: none; }
+    .source-line a:hover { text-decoration: underline; }
+    .empty-state { text-align: center; border: 1px dashed rgba(132,158,199,.2); border-radius: 15px; padding: 42px 18px; background: rgba(12,20,34,.4); }
+    .empty-icon { width: 42px; height: 42px; margin: 0 auto 12px; color: var(--cyan); border-radius: 13px; display: grid; place-items: center; background: rgba(93,230,255,.09); }
+    .empty-icon svg { width: 21px; height: 21px; }
+    .empty-state h3 { margin: 0 0 5px; font-size: 13px; }
+    .empty-state p { margin: 0; color: var(--muted); font-size: 10px; }
+    .status-line { margin: 0 0 12px; color: var(--muted); font-size: 10px; display: none; border: 1px solid rgba(255,201,121,.2); background: rgba(255,201,121,.06); border-radius: 9px; padding: 9px 11px; }
+    .status-line.show { display: block; }
+    .footer { border-top: 1px solid var(--line); padding: 18px 0 25px; color: #64738d; font-size: 9px; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .footer strong { color: #91a4c1; font-weight: 700; }
+    .mono { font-family: 'DM Mono', monospace; }
+    .skeleton { height: 165px; border-radius: 14px; border: 1px solid var(--line); background: linear-gradient(100deg, rgba(17,27,46,.65) 25%, rgba(33,51,78,.55) 40%, rgba(17,27,46,.65) 60%); background-size: 200% 100%; animation: shimmer 1.5s infinite; }
+    @keyframes shimmer { to { background-position: -200% 0; } }
+    @media (max-width: 980px) { .main-grid { grid-template-columns: minmax(0,1fr) 250px; gap: 13px; } .shell { width: min(100% - 36px, 1440px); } }
+    @media (max-width: 760px) {
+      .shell { width: min(100% - 28px, 620px); }
+      .topbar { height: 65px; }
+      .top-actions .subtle-pill { display: none; }
+      .hero { padding-top: 32px; align-items: start; flex-direction: column; gap: 18px; }
+      .hero-right { width: 100%; flex-direction: row; align-items: center; justify-content: space-between; }
+      .stats { grid-template-columns: repeat(2,1fr); gap: 9px; margin-bottom: 21px; }
+      .stat { min-height: 86px; padding: 12px 13px; }
+      .stat-value { font-size: 22px; }
+      .radar-wrap { padding: 14px; margin-bottom: 22px; }
+      .radar-grid { grid-template-columns: 1fr; gap: 8px; }
+      .radar-card { min-height: unset; padding: 11px 12px; }
+      .radar-desc { min-height: 0; margin: 6px 0 8px; }
+      .main-grid { display: flex; flex-direction: column; }
+      .feed-panel { width: 100%; }
+      .sidebar { position: static; width: 100%; grid-template-columns: 1fr 1fr; }
+      .sidebar .side-card:last-child { grid-column: 1 / -1; }
+      .feed-toolbar { align-items: stretch; }
+      .tabs { width: fit-content; }
+      .searchbox { max-width: none; min-width: 100%; }
+    }
+    @media (max-width: 430px) {
+      .brand-caption { display: none; }
+      .live-pill { padding: 6px 8px; font-size: 9px; }
+      .top-actions { gap: 7px; }
+      .hero-right { align-items: start; flex-direction: column; }
+      .sidebar { grid-template-columns: 1fr; }
+      .sidebar .side-card:last-child { grid-column: auto; }
+      .news-card { padding: 14px 13px 12px; }
+      .news-title { font-size: 13px; }
+      .news-top { align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Market Pulse domů">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 14.5h4l2.2-7 4.1 11 2.4-7H21" stroke="#63e9ff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 21h18" stroke="#63e9ff" stroke-opacity=".35" stroke-width="1"/></svg></span>
+        <span><span class="brand-name">MARKET<span>PULSE</span></span><span class="brand-caption">GLOBAL NEWS INTELLIGENCE</span></span>
+      </a>
+      <div class="top-actions">
+        <span class="subtle-pill">CZ / EN · GLOBÁLNÍ FEED</span>
+        <span class="live-pill"><i class="pulse-dot"></i> LIVE MONITOR</span>
+        <button class="icon-btn" id="autoBtn" title="Automatická aktualizace: zapnuto" aria-label="Přepnout automatickou aktualizaci"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7v5h-5M4 17v-5h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.7 9A7 7 0 0 1 18 6l2 6M4 12l2 6a7 7 0 0 0 12.3-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div>
+          <div class="eyebrow">MARKET INTELLIGENCE / 01</div>
+          <h1><span class="gradient">Zprávy, které hýbou trhy.</span></h1>
+          <p class="hero-copy">Globální události na jednom místě. Sleduj, co se děje ve světě — a zjisti, které investiční oblasti mohou být v pohybu.</p>
+        </div>
+        <div class="hero-right">
+          <div class="update-line"><span>POSLEDNÍ SYNCHRONIZACE</span><strong id="lastUpdated">čekám na data…</strong></div>
+          <button class="primary-btn" id="refreshBtn"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7v5h-5M4 17v-5h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.7 9A7 7 0 0 1 18 6l2 6M4 12l2 6a7 7 0 0 0 12.3-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg> Aktualizovat data</button>
+        </div>
+      </section>
+
+      <section class="stats" aria-label="Souhrn">
+        <div class="stat" style="--glow:rgba(93,230,255,.18)"><div class="stat-label">Zprávy v přehledu</div><div class="stat-value" id="statNews">—</div><div class="stat-foot">POSLEDNÍCH 7 DNÍ</div></div>
+        <div class="stat" style="--glow:rgba(162,140,255,.18)"><div class="stat-label">Zachycená témata</div><div class="stat-value" id="statTopics">—</div><div class="stat-foot">MAKRO · GEOPOLITIKA · TRHY</div></div>
+        <div class="stat" style="--glow:rgba(85,230,173,.14)"><div class="stat-label">Třídy aktiv</div><div class="stat-value" id="statAssets">—</div><div class="stat-foot">S MOŽNÝM DOPADEM</div></div>
+        <div class="stat" style="--glow:rgba(255,201,121,.14)"><div class="stat-label">Uložené zprávy</div><div class="stat-value" id="statSaved">0</div><div class="stat-foot">TVŮJ WATCHLIST</div></div>
+      </section>
+
+      <section class="radar-wrap">
+        <div class="section-head">
+          <h2 class="section-title"><span class="mini-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><path d="m12 12 6-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg></span> Tržní radar</h2>
+          <span class="section-kicker">TEMATICKÁ AKTIVITA VE ZPRÁVÁCH</span>
+        </div>
+        <div class="radar-grid" id="radarGrid">
+          <div class="radar-card"><div class="radar-name">Makro & sazby</div><div class="radar-desc">Načítám tematickou aktivitu…</div><div class="meter"><span></span></div></div>
+          <div class="radar-card"><div class="radar-name">Geopolitika</div><div class="radar-desc">Načítám tematickou aktivitu…</div><div class="meter"><span></span></div></div>
+          <div class="radar-card"><div class="radar-name">Komodity & energie</div><div class="radar-desc">Načítám tematickou aktivitu…</div><div class="meter"><span></span></div></div>
+        </div>
+      </section>
+
+      <div class="main-grid">
+        <section class="feed-panel">
+          <div class="section-head">
+            <h2 class="section-title"><span class="mini-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16M4 10h16M4 15h10M4 20h7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span> Zpravodajský feed</h2>
+            <span class="section-kicker" id="feedScope">GLOBÁLNÍ PŘEHLED</span>
+          </div>
+          <div class="feed-toolbar">
+            <div class="tabs" role="tablist" aria-label="Typ zobrazení">
+              <button class="tab active" data-view="all" role="tab" aria-selected="true">Vše <span class="tab-num" id="allCount">0</span></button>
+              <button class="tab" data-view="saved" role="tab" aria-selected="false">Uložené <span class="tab-num" id="savedCount">0</span></button>
+            </div>
+            <label class="searchbox"><svg viewBox="0 0 24 24" fill="none"><circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" stroke-width="1.7"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><input id="searchInput" type="search" placeholder="Hledat zprávy, aktiva, témata…" autocomplete="off"></label>
+          </div>
+          <div class="filters" id="filters" aria-label="Filtrovat podle tématu">
+            <button class="filter-chip active" data-filter="all">Všechna témata</button>
+            <button class="filter-chip" data-filter="macro">Makro & sazby</button>
+            <button class="filter-chip" data-filter="geopolitics">Geopolitika</button>
+            <button class="filter-chip" data-filter="energy">Energie</button>
+            <button class="filter-chip" data-filter="commodities">Komodity</button>
+            <button class="filter-chip" data-filter="crypto">Krypto</button>
+            <button class="filter-chip" data-filter="tech">Technologie</button>
+          </div>
+          <p class="status-line" id="statusLine" role="status"></p>
+          <div class="feed-meta"><span id="resultsLabel">NAČÍTÁM ZPRÁVY…</span><span>ŘAZENO: NEJNOVĚJŠÍ</span></div>
+          <div class="news-list" id="newsList" aria-live="polite">
+            <div class="skeleton"></div><div class="skeleton"></div>
+          </div>
+        </section>
+
+        <aside class="sidebar">
+          <section class="side-card">
+            <h3 class="side-title">Nejčastější témata <span>TOP 04</span></h3>
+            <div class="theme-list" id="themeList"><p class="side-note">Čekám na první data z globálního feedu.</p></div>
+          </section>
+          <section class="side-card">
+            <div class="note-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 2.8 19h18.4L12 3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M12 9v4.5M12 17h.01" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+            <h3 class="side-title">Jak číst dopady <span>INFO</span></h3>
+            <p class="side-note">Dopady jsou automatické scénáře podle tématu a slov v titulku. <strong style="color:#c2d2e8">Nejde o predikci ceny ani investiční doporučení.</strong> Trh může zprávu očekávat předem nebo na ni reagovat opačně.</p>
+            <div class="source-line"><span>DATA SOURCE</span><a href="https://www.gdeltproject.org/" target="_blank" rel="noopener noreferrer">GDELT Project ↗</a></div>
+          </section>
+          <section class="side-card">
+            <h3 class="side-title">Co zde najdeš <span>OVERVIEW</span></h3>
+            <p class="side-note">Zprávy ze světových médií, tematické štítky a mapu možných dopadů na akcie, dluhopisy, měny, komodity a krypto. Detail vždy ověř v původním článku.</p>
+          </section>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <span><strong>MARKETPULSE</strong> · INDEPENDENT MARKET NEWS MONITOR</span>
+      <span>Články: <strong>GDELT Project</strong> · Analýza dopadu: vlastní tematická pravidla · Bez cenového feedu</span>
+    </footer>
+  </div>
+
+  <script>
+    (() => {
+      'use strict';
+      const API = 'https://api.gdeltproject.org/api/v2/doc/doc';
+      const SEARCH_QUERY = '(inflation OR "interest rates" OR "central bank" OR "Federal Reserve" OR ECB OR recession OR yields OR bonds OR oil OR OPEC OR "natural gas" OR LNG OR gold OR silver OR copper OR wheat OR lithium OR bitcoin OR ethereum OR cryptocurrency OR crypto OR ETF OR tariffs OR sanctions OR war OR conflict OR "trade deal" OR earnings OR stocks OR shares OR semiconductor OR Nvidia OR "artificial intelligence" OR shipping OR supply chain)';
+      const STORAGE_KEY = 'marketpulse-saved-v1';
+      const $ = (sel, root = document) => root.querySelector(sel);
+      const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
+      const state = { articles: [], saved: readSaved(), view: 'all', filter: 'all', search: '', lastFetch: 0, auto: true, timer: null, loading: false };
+
+      const CATEGORIES = {
+        macro: { label: 'Makro & sazby', color: '#a58cff', icon: '◈', radar: 'Makro & sazby' },
+        geopolitics: { label: 'Geopolitika', color: '#ff9a9a', icon: '◎', radar: 'Geopolitika' },
+        energy: { label: 'Energie', color: '#ffc979', icon: 'ϟ', radar: 'Energie' },
+        commodities: { label: 'Komodity', color: '#ffd27d', icon: '◆', radar: 'Komodity' },
+        crypto: { label: 'Krypto', color: '#a58cff', icon: '₿', radar: 'Krypto' },
+        tech: { label: 'Technologie', color: '#5de6ff', icon: '⌘', radar: 'Technologie' },
+        corporate: { label: 'Firmy & akcie', color: '#7edbb7', icon: '▥', radar: 'Firmy & akcie' },
+        other: { label: 'Tržní zprávy', color: '#9badc9', icon: '◌', radar: 'Ostatní' }
+      };
+
+      function readSaved() {
+        try {
+          const raw = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+          const entries = Array.isArray(raw) ? raw : [];
+          return new Map(entries.filter(item => item && typeof item === 'object' && item.id).map(item => [item.id, { ...item, date: item.date ? new Date(item.date) : null }]));
+        } catch { return new Map(); }
+      }
+      function saveSaved() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify([...state.saved.values()])); } catch {} }
+      function escapeHtml(value) {
+        return String(value ?? '').replace(/[&<>"']/g, ch => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' })[ch]);
+      }
+      function parseDate(raw) {
+        if (!raw) return null;
+        if (/^\d{8}T\d{6}Z$/.test(raw)) return new Date(Date.UTC(+raw.slice(0,4), +raw.slice(4,6)-1, +raw.slice(6,8), +raw.slice(9,11), +raw.slice(11,13), +raw.slice(13,15)));
+        const d = new Date(raw); return Number.isNaN(d.getTime()) ? null : d;
+      }
+      function timeAgo(date) {
+        if (!date) return 'čas neuveden';
+        const mins = Math.max(0, Math.floor((Date.now() - date.getTime()) / 60000));
+        if (mins < 1) return 'právě teď';
+        if (mins < 60) return `před ${mins} min`;
+        const h = Math.floor(mins / 60); if (h < 24) return `před ${h} h`;
+        const d = Math.floor(h / 24); return `před ${d} d`;
+      }
+      function domainOf(url, domain) {
+        if (domain) return domain.replace(/^www\./, '');
+        try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return 'SVĚTOVÁ MÉDIA'; }
+      }
+      function scoreCategory(text) {
+        const rules = [
+          ['crypto', /\b(bitcoin|btc|ethereum|ether|crypto|cryptocurrency|stablecoin|token|altcoin|cryptocurrency|crypto exchange|spot etf)\b/gi],
+          ['energy', /\b(oil|crude|opec|natural gas|lng|petroleum|refinery|pipeline|brent|wti|gas supply)\b/gi],
+          ['commodities', /\b(gold|silver|copper|wheat|corn|soybean|lithium|uranium|platinum|palladium|iron ore|commodity|commodities)\b/gi],
+          ['macro', /\b(inflation|cpi|pce|interest rate|central bank|federal reserve|fed\b|ecb\b|bank of japan|rate cut|rate hike|bond yield|treasury|recession|gdp|unemployment|monetary policy)\b/gi],
+          ['geopolitics', /\b(war|military|missile|attack|invasion|sanction|tariff|trade war|conflict|ceasefire|nato|election|geopolitical|blockade|embargo|protest)\b/gi],
+          ['tech', /\b(artificial intelligence|\bai\b|semiconductor|chipmaker|chips|nvidia|technology|tech stocks|data center|cloud computing)\b/gi],
+          ['corporate', /\b(earnings|quarterly results|revenue|profit|shares|stocks|ipo|merger|acquisition|buyback|layoffs|guidance)\b/gi]
+        ];
+        const results = rules.map(([key, re]) => [key, (text.match(re) || []).length]).sort((a,b) => b[1]-a[1]);
+        return results[0][1] ? results[0][0] : 'other';
+      }
+      function impactsFor(category, text) {
+        const t = text.toLowerCase();
+        const has = re => re.test(t);
+        const hawkish = has(/\b(rate hike|hikes rates|raise rates|higher rates|hawkish|tightening|inflation surges|hot inflation|inflation accelerates)\b/);
+        const dovish = has(/\b(rate cut|cuts rates|lower rates|dovish|easing|rate reduction|stimulus|disinflation|inflation cools)\b/);
+        const supplyShock = has(/\b(disruption|disrupted|outage|shortage|supply cut|production cut|cuts output|blockade|attack|halt|shutdown|sanction)\b/);
+        const supplyIncrease = has(/\b(output increase|raises production|boosts output|supply rises|production rises|oversupply)\b/);
+        const supportive = has(/\b(approved|approval|adoption|inflows|record demand|institutional buying|breakthrough|deal reached|ceasefire|peace deal)\b/);
+        const restrictive = has(/\b(ban|banned|crackdown|rejected|lawsuit|hack|hacked|default|collapse|fraud|war escalates)\b/);
+        let explanation = 'Zpráva může změnit očekávání investorů a krátkodobě zvýšit volatilitu. Konkrétní směr závisí na detailech události a na tom, co už trh započítal do cen.';
+        let assets = [];
+        let confidence = 'STŘEDNÍ CITLIVOST';
+        if (category === 'macro') {
+          if (hawkish) {
+            explanation = 'Přísnější měnová politika nebo překvapivě vysoká inflace obvykle zvyšuje výnosy dluhopisů a diskontní sazby. To může tlačit na jejich ceny, růstové akcie i riziková aktiva.';
+            assets = [['USD / měny', 'up'], ['Dluhopisy (cena)', 'down'], ['Růstové akcie', 'down'], ['Krypto', 'down']];
+          } else if (dovish) {
+            explanation = 'Měkčí politika či zpomalující inflace může snížit tlak na výnosy a podpořit valuace akcií a rizikových aktiv. Záleží ale na tom, zda uvolnění není reakcí na prudké ochlazení ekonomiky.';
+            assets = [['Dluhopisy (cena)', 'up'], ['Akciové indexy', 'up'], ['Krypto', 'up'], ['USD', 'mixed']];
+          } else {
+            explanation = 'Makrodata a komentáře centrálních bank mění očekávání budoucích sazeb, výnosů a hospodářského růstu. Sleduj hlavně překvapení proti tržnímu konsenzu.';
+            assets = [['Dluhopisy', 'mixed'], ['Akciové indexy', 'mixed'], ['USD / EUR', 'mixed'], ['Zlato', 'mixed']];
+          }
+        } else if (category === 'geopolitics') {
+          explanation = 'Geopolitické napětí může zvýšit rizikovou prémii, narušit obchodní trasy a podpořit poptávku po bezpečných aktivech. Dopad závisí na rozsahu, délce a místě události.';
+          assets = [['Zlato', 'up'], ['Ropa / plyn', supplyShock ? 'up' : 'mixed'], ['Široké akcie', 'down'], ['Krypto', 'mixed']];
+          if (has(/\b(tariff|tariffs|trade war|trade restriction)\b/)) assets = [['Exportéři', 'down'], ['Průmyslové kovy', 'mixed'], ['Zlato', 'up'], ['Akciové indexy', 'down']];
+        } else if (category === 'energy') {
+          explanation = supplyShock ? 'Zmínka o výpadku, omezení nabídky či narušení přepravy může zdražit energetické kontrakty. Vyšší energie zároveň zvyšuje náklady dopravy a průmyslu.' : supplyIncrease ? 'Růst těžby nebo nabídky může vytvářet tlak na ceny energetických surovin. Výsledek ovlivní také zásoby, poptávka a reakce producentů.' : 'Zprávy o energetice mohou měnit očekávání nabídky a poptávky. Sleduj produkci, zásoby, přepravu a komentáře hlavních producentů.';
+          assets = [['Ropa / Brent', supplyShock ? 'up' : supplyIncrease ? 'down' : 'mixed'], ['Plyn / LNG', supplyShock ? 'up' : 'mixed'], ['Energetické firmy', supplyShock ? 'up' : 'mixed'], ['Doprava / aerolinky', supplyShock ? 'down' : 'mixed']];
+        } else if (category === 'commodities') {
+          const goldStory = has(/\b(gold|silver)\b/);
+          explanation = goldStory ? 'Vývoj drahých kovů ovlivňují reálné výnosy, dolar, nákupy centrálních bank a poptávka po bezpečném přístavu. Samotný titulek nemusí určovat směr ceny.' : 'Zprávy o surovinách mohou ovlivnit rovnováhu nabídky a poptávky, náklady výrobců a marže těžařů. Sleduj zásoby, těžbu a průmyslovou poptávku.';
+          assets = goldStory ? [['Zlato / stříbro', supportive ? 'up' : restrictive ? 'mixed' : 'mixed'], ['Těžaři kovů', 'mixed'], ['USD', 'mixed']] : [['Příslušná komodita', supplyShock ? 'up' : supplyIncrease ? 'down' : 'mixed'], ['Těžaři / producenti', 'mixed'], ['Průmyslové firmy', 'mixed']];
+        } else if (category === 'crypto') {
+          explanation = restrictive ? 'Restriktivní regulace, bezpečnostní incident nebo právní zásah může zhoršit sentiment a zvýšit regulatorní riziko v kryptu.' : supportive ? 'Pozitivní regulatorní zpráva, příliv kapitálu nebo širší adopce může zlepšit sentiment a přístup investorů ke kryptu. Důležitá je také reakce trhu.' : 'Kryptoměny reagují na regulaci, institucionální toky, likviditu a ochotu investorů podstupovat riziko. Dopad na jednotlivé tokeny se může výrazně lišit.';
+          assets = [['Bitcoin (BTC)', supportive ? 'up' : restrictive ? 'down' : 'mixed'], ['Ethereum (ETH)', supportive ? 'up' : restrictive ? 'down' : 'mixed'], ['Krypto akcie', supportive ? 'up' : restrictive ? 'down' : 'mixed'], ['Riziková aktiva', 'mixed']];
+        } else if (category === 'tech') {
+          explanation = 'Technologické zprávy mohou měnit očekávání růstu tržeb, investičních výdajů a marží v sektoru. U AI a čipů sleduj hlavně poptávku, kapacity a ocenění firem.';
+          assets = [['Polovodiče', 'mixed'], ['NASDAQ / tech', 'mixed'], ['AI infrastruktura', 'mixed']];
+        } else if (category === 'corporate') {
+          explanation = 'Firemní výsledky a výhled mohou přímo ovlivnit akcie dané společnosti a nepřímo celý sektor. Rozhodující bývá rozdíl proti očekávání, marže a výhled managementu.';
+          assets = [['Akcie dané firmy', 'mixed'], ['Příslušný sektor', 'mixed'], ['Širší indexy', 'mixed']];
+        } else {
+          assets = [['Akciové indexy', 'mixed'], ['Komodity', 'mixed'], ['Měny', 'mixed']];
+          confidence = 'NIŽŠÍ JISTOTA';
+        }
+        if (category === 'macro' && (hawkish || dovish)) confidence = 'VYŠŠÍ CITLIVOST';
+        if (category === 'geopolitics' && supplyShock) confidence = 'VYŠŠÍ CITLIVOST';
+        return { explanation, assets, confidence };
+      }
+      function normalizeArticle(article, index) {
+        const title = article.title || 'Titulek není k dispozici';
+        const url = article.url || '#';
+        const domain = domainOf(url, article.domain);
+        const date = parseDate(article.seendate || article.date);
+        const category = scoreCategory(`${title} ${domain}`);
+        const impact = impactsFor(category, title);
+        const id = article.url || `${title}|${article.seendate || index}`;
+        return { id, title, url, domain, date, category, impact, language: article.language || '', sourceCountry: article.sourceCountry || article.sourcecountry || '' };
+      }
+      function setStatus(message = '', show = false) {
+        const el = $('#statusLine'); el.textContent = message; el.classList.toggle('show', show);
+      }
+      function setLoading(on) {
+        state.loading = on;
+        const btn = $('#refreshBtn'); btn.disabled = on;
+        btn.innerHTML = on ? '<svg viewBox="0 0 24 24" fill="none"><path d="M12 3v3m0 12v3M3 12h3m12 0h3M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1m0-12.8-2.1 2.1m-8.6 8.6-2.1 2.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg> Načítám…' : '<svg viewBox="0 0 24 24" fill="none"><path d="M20 7v5h-5M4 17v-5h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.7 9A7 7 0 0 1 18 6l2 6M4 12l2 6a7 7 0 0 0 12.3-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg> Aktualizovat data';
+      }
+      async function fetchNews(force = false) {
+        if (state.loading) return;
+        const sinceLast = Date.now() - state.lastFetch;
+        if (sinceLast < 5000) { setStatus('Zdroj omezuje četnost dotazů. Další aktualizace bude možná za několik sekund.', true); return; }
+        state.lastFetch = Date.now();
+        setLoading(true); setStatus('Připojuji se ke globálnímu zpravodajskému feedu…', true);
+        try {
+          const params = new URLSearchParams({ query: SEARCH_QUERY, mode: 'ArtList', format: 'json', maxrecords: '100', timespan: '7d', sort: 'DateDesc' });
+          const response = await fetch(`${API}?${params.toString()}`, { headers: { 'Accept': 'application/json' }, cache: 'no-store' });
+          if (!response.ok) throw new Error(`Zdroj vrátil chybu HTTP ${response.status}.`);
+          const type = response.headers.get('content-type') || '';
+          if (!type.includes('json')) throw new Error('Zdroj nyní nevrátil JSON. Zkus aktualizaci za chvíli.');
+          const data = await response.json();
+          if (!Array.isArray(data.articles)) throw new Error(data.error || 'Ve výsledku nejsou dostupné články.');
+          const seen = new Set();
+          state.articles = data.articles.map(normalizeArticle).filter(a => {
+            if (!a.title || !a.url || a.url === '#' || seen.has(a.id)) return false;
+            seen.add(a.id); return true;
+          }).sort((a,b) => (b.date?.getTime() || 0) - (a.date?.getTime() || 0));
+          state.lastFetch = Date.now();
+          $('#lastUpdated').textContent = new Date().toLocaleTimeString('cs-CZ', { hour: '2-digit', minute: '2-digit' });
+          setStatus(state.articles.length ? `Načteno ${state.articles.length} článků ze světových médií.` : 'Zdroj nevrátil žádné články. Zkus širší filtr nebo pozdější aktualizaci.', true);
+          render();
+        } catch (error) {
+          const hadData = state.articles.length > 0;
+          setStatus(`${error.message || 'Nepodařilo se načíst zprávy.'}${hadData ? ' Zobrazuji poslední úspěšně načtená data.' : ' Zkontroluj připojení a zkus to znovu.'}`, true);
+          if (!hadData) renderEmptyError();
+        } finally { setLoading(false); }
+      }
+      function renderEmptyError() {
+        $('#newsList').innerHTML = `<div class="empty-state"><div class="empty-icon">${iconSvg('cloud-off')}</div><h3>Feed je momentálně nedostupný</h3><p>Zdroj zpráv neodpovídá nebo omezuje požadavky. Zkus aktualizaci za chvíli.</p></div>`;
+        $('#resultsLabel').textContent = 'ČEKÁM NA DATA';
+      }
+      function iconSvg(name) {
+        const paths = {
+          'bookmark': '<path d="M6 4.8A1.8 1.8 0 0 1 7.8 3h8.4A1.8 1.8 0 0 1 18 4.8V21l-6-4-6 4V4.8Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>',
+          'bookmark-fill': '<path d="M6 4.8A1.8 1.8 0 0 1 7.8 3h8.4A1.8 1.8 0 0 1 18 4.8V21l-6-4-6 4V4.8Z" fill="currentColor"/>',
+          'cloud-off': '<path d="m3 3 18 18M7 18H6a4 4 0 0 1-.3-8A6.5 6.5 0 0 1 17 6.7M12 18h6a4 4 0 0 0 1.6-7.7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>'
+        };
+        return `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">${paths[name] || ''}</svg>`;
+      }
+      function filteredArticles() {
+        let list = state.articles;
+        if (state.view === 'saved') list = [...state.saved.values()];
+        if (state.filter !== 'all') list = list.filter(a => a.category === state.filter);
+        if (state.search.trim()) {
+          const q = state.search.trim().toLowerCase();
+          list = list.filter(a => `${a.title} ${a.domain} ${CATEGORIES[a.category].label} ${a.impact.assets.map(x => x[0]).join(' ')}`.toLowerCase().includes(q));
+        }
+        return list;
+      }
+      function renderArticle(a) {
+        const meta = CATEGORIES[a.category] || CATEGORIES.other;
+        const saved = state.saved.has(a.id);
+        const assets = a.impact.assets.map(([name, direction]) => `<span class="asset ${direction}">${direction === 'up' ? '↗' : direction === 'down' ? '↘' : '↔'} ${escapeHtml(name)}</span>`).join('');
+        const safeUrl = /^https?:\/\//i.test(a.url) ? a.url : '#';
+        const when = a.date ? `${timeAgo(a.date)} · ${a.date.toLocaleDateString('cs-CZ', { day:'2-digit', month:'2-digit' })}` : 'čas neuveden';
+        return `<article class="news-card" style="--accent:${meta.color}">
+          <div class="news-top"><div class="news-source"><i class="source-dot"></i><span>${escapeHtml(a.domain)}</span></div><span class="news-time">${escapeHtml(when)}</span></div>
+          <h3 class="news-title"><a href="${escapeHtml(safeUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(a.title)}</a></h3>
+          <div class="news-tags"><span class="tag category" style="--tag-color:${meta.color}">${meta.icon} ${escapeHtml(meta.label)}</span><span class="tag">GLOBÁLNÍ ZPRÁVA</span></div>
+          <div class="impact-box"><div class="impact-heading"><span class="impact-label"><span class="impact-symbol">↗</span> MOŽNÝ TRŽNÍ DOPAD</span><span class="confidence">${escapeHtml(a.impact.confidence)}</span></div><p class="impact-text">${escapeHtml(a.impact.explanation)}</p><div class="asset-row">${assets}</div></div>
+          <div class="news-bottom"><div class="news-bottom-left"><span>${escapeHtml(a.sourceCountry || 'WORLD')}</span><span>·</span><span>OTEVŘÍT PŮVODNÍ ZDROJ ↗</span></div><button class="save-btn ${saved ? 'saved' : ''}" data-save="${escapeHtml(a.id)}" aria-label="${saved ? 'Odebrat z uložených' : 'Uložit zprávu'}">${iconSvg(saved ? 'bookmark-fill' : 'bookmark')} ${saved ? 'ULOŽENO' : 'ULOŽIT'}</button></div>
+        </article>`;
+      }
+      function renderRadar() {
+        const radarDefs = [
+          { key: 'macro', title: 'Makro & sazby', icon: '◈', desc: 'Inflace, sazby centrálních bank, růst ekonomiky.' },
+          { key: 'geopolitics', title: 'Geopolitika', icon: '◎', desc: 'Konflikty, sankce, cla a mezinárodní obchod.' },
+          { key: 'energy', title: 'Komodity & energie', icon: 'ϟ', desc: 'Ropa, plyn, kovy a narušení dodavatelských řetězců.' }
+        ];
+        const counts = radarDefs.map(d => state.articles.filter(a => a.category === d.key || (d.key === 'energy' && a.category === 'commodities')).length);
+        const max = Math.max(1, ...counts);
+        $('#radarGrid').innerHTML = radarDefs.map((d,i) => `<div class="radar-card"><div class="radar-top"><div class="radar-name"><span class="radar-icon">${d.icon}</span>${d.title}</div><span class="radar-count">${counts[i]} zpráv</span></div><div class="radar-desc">${d.desc}</div><div class="meter"><span style="width:${Math.round(counts[i]/max*100)}%"></span></div></div>`).join('');
+      }
+      function renderThemes() {
+        const counts = Object.keys(CATEGORIES).map(key => ({ key, label: CATEGORIES[key].label, count: state.articles.filter(a => a.category === key).length })).filter(x => x.count).sort((a,b) => b.count-a.count).slice(0,4);
+        const max = Math.max(1, ...counts.map(x => x.count));
+        $('#themeList').innerHTML = counts.length ? counts.map(t => `<div class="theme-row"><span class="theme-name">${escapeHtml(t.label)}</span><span class="theme-value">${t.count}</span><div class="meter"><span style="width:${Math.round(t.count/max*100)}%"></span></div></div>`).join('') : '<p class="side-note">Zatím bez dat.</p>';
+      }
+      function render() {
+        const articles = filteredArticles();
+        $('#statNews').textContent = state.articles.length;
+        $('#statTopics').textContent = new Set(state.articles.map(a => a.category)).size;
+        $('#statAssets').textContent = new Set(state.articles.flatMap(a => a.impact.assets.map(x => x[0].split(' ')[0]))).size;
+        $('#statSaved').textContent = state.saved.size;
+        $('#allCount').textContent = state.articles.length;
+        $('#savedCount').textContent = state.saved.size;
+        $('#feedScope').textContent = state.view === 'saved' ? 'TVŮJ WATCHLIST' : 'GLOBÁLNÍ PŘEHLED';
+        $('#resultsLabel').textContent = `${articles.length} ZPRÁV / ${state.view === 'saved' ? 'ULOŽENÉ' : 'VŠECHNY'}`;
+        $('#newsList').innerHTML = articles.length ? articles.map(renderArticle).join('') : `<div class="empty-state"><div class="empty-icon">${iconSvg('bookmark')}</div><h3>${state.view === 'saved' ? 'Zatím tu nic nemáš uložené' : 'Žádné zprávy neodpovídají filtru'}</h3><p>${state.view === 'saved' ? 'Ulož si zajímavé zprávy tlačítkem ULOŽIT a najdeš je zde.' : 'Zkus změnit téma nebo hledaný výraz.'}</p></div>`;
+        renderRadar(); renderThemes();
+        $$('.tab').forEach(el => { const active = el.dataset.view === state.view; el.classList.toggle('active', active); el.setAttribute('aria-selected', active ? 'true' : 'false'); });
+        $$('.filter-chip').forEach(el => el.classList.toggle('active', el.dataset.filter === state.filter));
+      }
+      function toggleSaved(id) {
+        if (state.saved.has(id)) state.saved.delete(id); else { const article = state.articles.find(a => a.id === id); if (article) state.saved.set(id, article); }
+        saveSaved(); render();
+      }
+      function setAuto(on) {
+        state.auto = on;
+        const b = $('#autoBtn'); b.style.color = on ? 'var(--cyan)' : 'var(--muted)';
+        b.title = `Automatická aktualizace: ${on ? 'zapnuto' : 'vypnuto'}`;
+        if (state.timer) clearInterval(state.timer);
+        if (on) state.timer = setInterval(() => fetchNews(false), 15 * 60 * 1000);
+      }
+
+      $('#refreshBtn').addEventListener('click', () => fetchNews(true));
+      $('#autoBtn').addEventListener('click', () => setAuto(!state.auto));
+      $('#searchInput').addEventListener('input', e => { state.search = e.target.value; render(); });
+      $('#filters').addEventListener('click', e => { const b = e.target.closest('[data-filter]'); if (!b) return; state.filter = b.dataset.filter; render(); });
+      $$('.tab').forEach(b => b.addEventListener('click', () => { state.view = b.dataset.view; render(); }));
+      $('#newsList').addEventListener('click', e => { const b = e.target.closest('[data-save]'); if (b) toggleSaved(b.dataset.save); });
+      setAuto(true);
+      fetchNews(true);
+    })();
+  </script>
+</body>
+</html>
