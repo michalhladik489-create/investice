@@ -210,6 +210,86 @@
       .news-title { font-size: 13px; }
       .news-top { align-items: flex-start; }
     }
+
+    /* Corporate & Strategic visual system */
+    :root { --bg:#f4f6f9; --panel:#ffffff; --panel-2:#ffffff; --line:#e1e6ed; --line-strong:#b8c9df; --text:#17263b; --muted:#637187; --muted-2:#8793a4; --cyan:#245b91; --cyan-2:#3978b7; --violet:#627c9d; --green:#167a59; --red:#b44752; --amber:#9a6a1b; --radius:12px; --shadow:0 8px 28px rgba(23,38,59,.055); }
+    body { color:var(--text); background:#f4f6f9; font-family:'Manrope',Arial,sans-serif; }
+    body::before { opacity:.28; background-image:linear-gradient(rgba(31,62,96,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(31,62,96,.035) 1px,transparent 1px); background-size:64px 64px; }
+    .topbar { border-color:#dce3eb; }
+    .brand-mark { border-radius:8px; border-color:#d5dfeb; background:#edf3f9; box-shadow:none; }
+    .brand-mark svg path { stroke:#245b91; }
+    .brand-name { color:#17263b; letter-spacing:.11em; }
+    .brand-name span { color:#245b91; }
+    .brand-caption { color:#7d8999; }
+    .live-pill,.subtle-pill { background:#fff; border-color:#dfe5ec; color:#5f6e82; }
+    .pulse-dot { background:#238563; box-shadow:none; }
+    .icon-btn { background:#fff; border-color:#dfe5ec; color:#5c6b80; border-radius:8px; }
+    .icon-btn:hover { border-color:#9eb2ca; color:#245b91; transform:none; }
+    .eyebrow { color:#35658f; letter-spacing:.17em; }
+    .eyebrow::before { background:#35658f; box-shadow:none; }
+    h1 .gradient { background:none; color:#17263b; -webkit-text-fill-color:#17263b; }
+    .hero-copy { color:#637187; }
+    .update-line { color:#78869a; }
+    .update-line strong { color:#34465e; }
+    .primary-btn { color:#fff; background:#245b91; border:1px solid #245b91; border-radius:8px; box-shadow:none; }
+    .primary-btn:hover { background:#194875; box-shadow:0 5px 14px rgba(36,91,145,.14); }
+    .stat,.radar-wrap,.radar-card,.side-card,.news-card { background:#fff; border-color:#e1e6ed; box-shadow:0 5px 20px rgba(23,38,59,.035); }
+    .stat::after,.radar-wrap::before { display:none; }
+    .stat-label,.section-kicker { color:#7b8798; }
+    .stat-value { color:#17263b; }
+    .stat-foot { color:#8490a0; }
+    .section-title { color:#24364d; }
+    .section-title .mini-icon { color:#35658f; }
+    .radar-card { background:#f9fafc; border-radius:9px; }
+    .radar-name { color:#34465e; }
+    .radar-icon { color:#35658f; background:#eaf1f8; border-radius:7px; }
+    .radar-count { color:#35658f; }
+    .radar-desc { color:#728096; }
+    .meter { background:#e8edf3; }
+    .meter>span { background:#477aa8; }
+    .tabs,.searchbox { background:#fff; border-color:#dfe5ec; }
+    .tab { color:#68778b; }
+    .tab.active { color:#214f7c; background:#eaf1f8; box-shadow:inset 0 0 0 1px #dce7f2; }
+    .news-card { border-radius:11px; }
+    .news-card:hover { border-color:#b8c9dc; background:#fff; transform:translateY(-1px); }
+    .news-source,.news-time { color:#78869a; }
+    .news-title { color:#1d3048; }
+    .news-title a:hover { color:#245b91; }
+    .tag { color:#637187; background:#f3f6f9; border-color:#e5eaf0; }
+    .impact-box { background:#f8fafc; border-color:#e4e9ef; border-radius:8px; }
+    .impact-label { color:#35658f; }
+    .impact-text { color:#526278; }
+    .confidence { color:#78869a; }
+    .asset { color:#526278; background:#f0f3f7; border-color:#e3e8ee; }
+    .asset.up { color:#167a59; background:#edf7f2; border-color:#d6ebe1; }
+    .asset.down { color:#b44752; background:#fbf0f1; border-color:#f0dadd; }
+    .asset.mixed { color:#91651e; background:#faf5e9; border-color:#eee3c9; }
+    .analysis-meta { display:flex; flex-wrap:wrap; gap:7px 14px; margin-top:9px; color:#718096; font:9px 'DM Mono',monospace; }
+    .analysis-meta strong { color:#526278; font-weight:500; }
+    .analysis-details { margin-top:9px; border-top:1px solid #e7ebf0; padding-top:8px; color:#526278; }
+    .analysis-details summary { cursor:pointer; color:#35658f; font-size:10px; font-weight:800; list-style:none; }
+    .analysis-details summary::-webkit-details-marker { display:none; }
+    .analysis-details summary:after { content:'＋'; float:right; }
+    .analysis-details[open] summary:after { content:'−'; }
+    .analysis-detail-body { padding:9px 2px 2px; font-size:10px; }
+    .analysis-detail-body ul { margin:5px 0 9px; padding-left:17px; }
+    .analysis-detail-body li { margin:3px 0; }
+    .analysis-detail-body small { color:#8490a0; line-height:1.5; display:block; }
+    .side-title { color:#2d4058; }
+    .theme-name { color:#5c6b80; }
+    .theme-value { color:#78869a; }
+    .side-note { color:#68778b; }
+    .note-icon { color:#91651e; background:#faf4e7; }
+    .source-line { color:#718096; border-color:#e5eaf0; }
+    .source-line a { color:#245b91; }
+    .empty-state { background:#fff; border-color:#dfe5ec; }
+    .empty-state h3 { color:#2d4058; }
+    .empty-state p { color:#718096; }
+    .status-line { color:#7b5a22; background:#fbf6eb; border-color:#eee1c3; }
+    .footer { border-color:#dfe5ec; color:#8994a3; }
+    .footer strong { color:#5c6b80; }
+    .skeleton { border-color:#e1e6ed; background:linear-gradient(100deg,#f0f3f7 25%,#e5ebf2 40%,#f0f3f7 60%); background-size:200% 100%; }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms!important; transition-duration:.01ms!important; scroll-behavior:auto!important; } }
   </style>
 </head>
 <body>
@@ -308,7 +388,7 @@
 
     <footer class="footer">
       <span><strong>MARKETPULSE</strong> · INDEPENDENT MARKET NEWS MONITOR</span>
-      <span>Články: <strong>GDELT Project</strong> · Analýza dopadu: vlastní tematická pravidla · Bez cenového feedu</span>
+      <span>Články: <strong>GDELT Project</strong> · Analýza: transparentní scénářová heuristika · Bez cenového feedu</span>
     </footer>
   </div>
 
@@ -377,53 +457,78 @@
       function impactsFor(category, text) {
         const t = text.toLowerCase();
         const has = re => re.test(t);
-        const hawkish = has(/\b(rate hike|hikes rates|raise rates|higher rates|hawkish|tightening|inflation surges|hot inflation|inflation accelerates)\b/);
-        const dovish = has(/\b(rate cut|cuts rates|lower rates|dovish|easing|rate reduction|stimulus|disinflation|inflation cools)\b/);
-        const supplyShock = has(/\b(disruption|disrupted|outage|shortage|supply cut|production cut|cuts output|blockade|attack|halt|shutdown|sanction)\b/);
-        const supplyIncrease = has(/\b(output increase|raises production|boosts output|supply rises|production rises|oversupply)\b/);
-        const supportive = has(/\b(approved|approval|adoption|inflows|record demand|institutional buying|breakthrough|deal reached|ceasefire|peace deal)\b/);
-        const restrictive = has(/\b(ban|banned|crackdown|rejected|lawsuit|hack|hacked|default|collapse|fraud|war escalates)\b/);
-        let explanation = 'Zpráva může změnit očekávání investorů a krátkodobě zvýšit volatilitu. Konkrétní směr závisí na detailech události a na tom, co už trh započítal do cen.';
-        let assets = [];
-        let confidence = 'STŘEDNÍ CITLIVOST';
+        const signals = [
+          {name:'Riziko nabídky', re:/\b(disruption|disrupted|outage|shortage|supply cut|production cut|cuts output|blockade|attack|halt|shutdown|sanction|embargo)\b/, weight:2},
+          {name:'Uvolnění nabídky', re:/\b(output increase|raises production|boosts output|supply rises|production rises|oversupply|reopens|resumes production)\b/, weight:-2},
+          {name:'Pozitivní katalyzátor', re:/\b(approved|approval|adoption|inflows|record demand|institutional buying|breakthrough|deal reached|ceasefire|peace deal|beats estimates|raises guidance|upgrade)\b/, weight:2},
+          {name:'Negativní katalyzátor', re:/\b(ban|banned|crackdown|rejected|lawsuit|hack|hacked|default|collapse|fraud|war escalates|misses estimates|cuts guidance|downgrade|bankruptcy)\b/, weight:-2},
+          {name:'Inflační / jestřábí tlak', re:/\b(rate hike|hikes rates|raise rates|higher rates|hawkish|tightening|inflation surges|hot inflation|inflation accelerates)\b/, weight:-1},
+          {name:'Dezinflace / holubičí posun', re:/\b(rate cut|cuts rates|lower rates|dovish|easing|rate reduction|stimulus|disinflation|inflation cools)\b/, weight:1}
+        ];
+        const detected = signals.filter(x => x.re.test(t));
+        const supplyShock = detected.some(x => x.name === 'Riziko nabídky');
+        const supplyIncrease = detected.some(x => x.name === 'Uvolnění nabídky');
+        const supportive = detected.some(x => x.name === 'Pozitivní katalyzátor');
+        const restrictive = detected.some(x => x.name === 'Negativní katalyzátor');
+        const hawkish = detected.some(x => x.name === 'Inflační / jestřábí tlak');
+        const dovish = detected.some(x => x.name === 'Dezinflace / holubičí posun');
+        const assets = [];
+        let mechanism = 'Událost může změnit očekávání investorů, rizikovou prémii nebo výhled firemních zisků.';
+        let horizon = '1–5 obchodních dnů';
+        let confidence = 'Nízká';
+        let eventType = 'Sentiment / očekávání';
+        let watch = ['Reakce trhu po zveřejnění', 'Potvrzení v dalších zprávách'];
+        const add = (name, dir, why) => assets.push({name, dir, why});
         if (category === 'macro') {
+          eventType = 'Makroekonomika a měnová politika'; horizon = 'Dny až týdny';
           if (hawkish) {
-            explanation = 'Přísnější měnová politika nebo překvapivě vysoká inflace obvykle zvyšuje výnosy dluhopisů a diskontní sazby. To může tlačit na jejich ceny, růstové akcie i riziková aktiva.';
-            assets = [['USD / měny', 'up'], ['Dluhopisy (cena)', 'down'], ['Růstové akcie', 'down'], ['Krypto', 'down']];
+            mechanism = 'Vyšší očekávané sazby obvykle zvyšují výnosy a diskontní sazbu. To může stlačit ceny dluhopisů, valuace růstových akcií a likviditu rizikových aktiv.';
+            add('USD', 'up', 'Relativně vyšší výnosy mohou podpořit dolar.'); add('Státní dluhopisy – cena', 'down', 'Růst výnosů znamená pokles ceny existujících dluhopisů.'); add('NASDAQ / růstové akcie', 'down', 'Vyšší diskontní sazba zatěžuje vzdálené budoucí zisky.'); add('Bitcoin a krypto', 'down', 'Přísnější likvidita často snižuje chuť riskovat.'); watch=['Výnos 2Y a 10Y státních dluhopisů USA','Další vyjádření Fedu / centrální banky','Jádrová inflace a tržní očekávání sazeb'];
           } else if (dovish) {
-            explanation = 'Měkčí politika či zpomalující inflace může snížit tlak na výnosy a podpořit valuace akcií a rizikových aktiv. Záleží ale na tom, zda uvolnění není reakcí na prudké ochlazení ekonomiky.';
-            assets = [['Dluhopisy (cena)', 'up'], ['Akciové indexy', 'up'], ['Krypto', 'up'], ['USD', 'mixed']];
-          } else {
-            explanation = 'Makrodata a komentáře centrálních bank mění očekávání budoucích sazeb, výnosů a hospodářského růstu. Sleduj hlavně překvapení proti tržnímu konsenzu.';
-            assets = [['Dluhopisy', 'mixed'], ['Akciové indexy', 'mixed'], ['USD / EUR', 'mixed'], ['Zlato', 'mixed']];
-          }
+            mechanism = 'Nižší očekávané sazby mohou snížit výnosy a podpořit valuace i likviditu. Pokud je však uvolnění reakcí na recesi, může převážit negativní dopad slabší poptávky.';
+            add('Státní dluhopisy – cena', 'up', 'Pokles výnosů obvykle zvyšuje cenu dluhopisů.'); add('Akciové indexy', 'up', 'Nižší diskontní sazba může podpořit ocenění.'); add('Zlato', 'up', 'Nižší reálné výnosy bývají pro zlato příznivé.'); add('USD', 'down', 'Nižší relativní výnos může dolar oslabit.'); watch=['Reálné výnosy amerických dluhopisů','Vývoj USD a inflačních očekávání','Zda se nezhoršují data o zaměstnanosti'];
+          } else { mechanism='Makrodata mění výhled růstu, inflace a sazeb. Bez znalosti překvapení proti konsenzu nelze směr určit; důležitá je reakce výnosů a měn.'; add('Dluhopisy', 'mixed','Směr závisí na složení dat a očekávání sazeb.'); add('Akciové indexy','mixed','Silný růst může pomoci ziskům, ale zvýšit sazby.'); add('USD / EUR','mixed','Měny reagují na relativní výhled ekonomik.'); }
+          confidence = detected.length ? 'Střední' : 'Nízká';
         } else if (category === 'geopolitics') {
-          explanation = 'Geopolitické napětí může zvýšit rizikovou prémii, narušit obchodní trasy a podpořit poptávku po bezpečných aktivech. Dopad závisí na rozsahu, délce a místě události.';
-          assets = [['Zlato', 'up'], ['Ropa / plyn', supplyShock ? 'up' : 'mixed'], ['Široké akcie', 'down'], ['Krypto', 'mixed']];
-          if (has(/\b(tariff|tariffs|trade war|trade restriction)\b/)) assets = [['Exportéři', 'down'], ['Průmyslové kovy', 'mixed'], ['Zlato', 'up'], ['Akciové indexy', 'down']];
+          eventType='Geopolitické a obchodní riziko'; horizon='Okamžitě až několik týdnů';
+          mechanism='Napětí může zvýšit rizikovou prémii, narušit logistiku a obchodní toky. Bez eskalace nebo měřitelných výpadků může být dopad krátkodobý.';
+          if (has(/\b(tariff|tariffs|trade war|trade restriction)\b/)) { add('Exportéři a průmysl','down','Cla zvyšují náklady a mohou omezit přeshraniční poptávku.'); add('Zlato','up','Nejistota může zvýšit poptávku po bezpečném přístavu.'); add('Průmyslové kovy','mixed','Záleží na tom, zda převáží omezení nabídky, nebo slabší poptávka.'); }
+          else { add('Zlato','up','Při eskalaci může růst bezpečnostní poptávka.'); add('Ropa / plyn',supplyShock?'up':'mixed','Riziko dodávek a přepravních tras může zvýšit prémii.'); add('Široké akciové indexy','down','Vyšší nejistota může snížit ochotu riskovat.'); add('USD / CHF','up','Bezpečnostní toky mohou podpořit vybrané měny.'); }
+          watch=['Konkrétní dopad na dodávky a přepravu','Reakce cen ropy, zlata a pojistného','Oficiální kroky, sankce a diplomatická jednání']; confidence=supplyShock?'Střední':'Nízká';
         } else if (category === 'energy') {
-          explanation = supplyShock ? 'Zmínka o výpadku, omezení nabídky či narušení přepravy může zdražit energetické kontrakty. Vyšší energie zároveň zvyšuje náklady dopravy a průmyslu.' : supplyIncrease ? 'Růst těžby nebo nabídky může vytvářet tlak na ceny energetických surovin. Výsledek ovlivní také zásoby, poptávka a reakce producentů.' : 'Zprávy o energetice mohou měnit očekávání nabídky a poptávky. Sleduj produkci, zásoby, přepravu a komentáře hlavních producentů.';
-          assets = [['Ropa / Brent', supplyShock ? 'up' : supplyIncrease ? 'down' : 'mixed'], ['Plyn / LNG', supplyShock ? 'up' : 'mixed'], ['Energetické firmy', supplyShock ? 'up' : 'mixed'], ['Doprava / aerolinky', supplyShock ? 'down' : 'mixed']];
+          eventType='Energetická nabídka a poptávka'; horizon='Dny až měsíce';
+          mechanism=supplyShock?'Výpadek produkce nebo přepravy může zúžit nabídku a zvýšit promptní ceny. Vyšší energie současně zvyšuje náklady dopravy, chemie a průmyslu.':'Energetické ceny určují rovnováha produkce, zásob a spotřeby. Samotné oznámení je potřeba ověřit proti skutečným objemům a skladovým datům.';
+          add('Brent / WTI',supplyShock?'up':supplyIncrease?'down':'mixed','Citlivost na změnu nabídky a geopolitickou prémii.'); add('Zemní plyn / LNG',supplyShock?'up':'mixed','Záleží na regionu, zásobách a kapacitě LNG.'); add('Energetičtí producenti',supplyShock?'up':supplyIncrease?'down':'mixed','Vyšší realizované ceny pomáhají tržbám, ale záleží na nákladech.'); add('Aerolinky / doprava',supplyShock?'down':'mixed','Palivo je významná provozní nákladová položka.');
+          watch=['Zásoby EIA / IEA a skutečná produkce','Termínová křivka Brent / plyn','Marže rafinerií a přepravní sazby']; confidence=supplyShock||supplyIncrease?'Střední':'Nízká';
         } else if (category === 'commodities') {
-          const goldStory = has(/\b(gold|silver)\b/);
-          explanation = goldStory ? 'Vývoj drahých kovů ovlivňují reálné výnosy, dolar, nákupy centrálních bank a poptávka po bezpečném přístavu. Samotný titulek nemusí určovat směr ceny.' : 'Zprávy o surovinách mohou ovlivnit rovnováhu nabídky a poptávky, náklady výrobců a marže těžařů. Sleduj zásoby, těžbu a průmyslovou poptávku.';
-          assets = goldStory ? [['Zlato / stříbro', supportive ? 'up' : restrictive ? 'mixed' : 'mixed'], ['Těžaři kovů', 'mixed'], ['USD', 'mixed']] : [['Příslušná komodita', supplyShock ? 'up' : supplyIncrease ? 'down' : 'mixed'], ['Těžaři / producenti', 'mixed'], ['Průmyslové firmy', 'mixed']];
+          eventType='Komoditní cyklus'; horizon='Dny až čtvrtletí';
+          const goldStory=has(/\b(gold|silver)\b/);
+          mechanism=goldStory?'Drahé kovy reagují zejména na reálné výnosy, dolar, nákupy centrálních bank a bezpečnostní poptávku. Titulek sám o sobě neurčuje směr ceny.':'Změna nabídky, zásob nebo průmyslové poptávky se promítá do termínových cen a marží producentů. Je nutné určit, zda jde o krátkodobý výpadek, nebo strukturální trend.';
+          add(goldStory?'Zlato / stříbro':'Dotčená komodita',goldStory?(supportive?'up':'mixed'):(supplyShock?'up':supplyIncrease?'down':'mixed'),'Přímá citlivost na změnu nabídky, poptávky a finančních podmínek.'); add('Těžaři / producenti','mixed','Vyšší cena může zlepšit tržby, ale náklady a zajištění mění dopad.'); add('Průmysloví odběratelé','mixed','Dražší vstupy mohou snížit marže zpracovatelů.');
+          watch=['Burzovní zásoby a fyzické prémie','Termínová křivka a spread spot/futures','Dolar a reálné výnosy (zejména u zlata)']; confidence=supplyShock||supplyIncrease?'Střední':'Nízká';
         } else if (category === 'crypto') {
-          explanation = restrictive ? 'Restriktivní regulace, bezpečnostní incident nebo právní zásah může zhoršit sentiment a zvýšit regulatorní riziko v kryptu.' : supportive ? 'Pozitivní regulatorní zpráva, příliv kapitálu nebo širší adopce může zlepšit sentiment a přístup investorů ke kryptu. Důležitá je také reakce trhu.' : 'Kryptoměny reagují na regulaci, institucionální toky, likviditu a ochotu investorů podstupovat riziko. Dopad na jednotlivé tokeny se může výrazně lišit.';
-          assets = [['Bitcoin (BTC)', supportive ? 'up' : restrictive ? 'down' : 'mixed'], ['Ethereum (ETH)', supportive ? 'up' : restrictive ? 'down' : 'mixed'], ['Krypto akcie', supportive ? 'up' : restrictive ? 'down' : 'mixed'], ['Riziková aktiva', 'mixed']];
+          eventType='Digitální aktiva a regulace'; horizon='Hodiny až týdny';
+          mechanism=restrictive?'Regulační zásah, bezpečnostní incident nebo právní spor může omezit přístup ke službám, zvýšit náklady compliance a vyvolat odliv kapitálu.':'Institucionální přístup, ETF toky, adopce a likvidita mohou změnit poptávku. Pozitivní zpráva pro jeden projekt nemusí znamenat růst celého trhu.';
+          add('Bitcoin (BTC)',supportive?'up':restrictive?'down':'mixed','Citlivý na likviditu, institucionální toky a celkový sentiment.'); add('Ethereum (ETH)','mixed','Dopad závisí na tom, zda se událost týká přímo ekosystému ETH.'); add('Krypto burzy / akcie','mixed','Regulace může změnit objemy obchodů a náklady.'); add('Stablecoiny / DeFi','mixed','Sleduj konkrétní jurisdikci, protokol a protistranové riziko.');
+          watch=['Čisté toky spotových ETF a burz','Funding, otevřený zájem a likvidace','Regulatorní dokumenty a on-chain aktivita']; confidence=supportive||restrictive?'Střední':'Nízká';
         } else if (category === 'tech') {
-          explanation = 'Technologické zprávy mohou měnit očekávání růstu tržeb, investičních výdajů a marží v sektoru. U AI a čipů sleduj hlavně poptávku, kapacity a ocenění firem.';
-          assets = [['Polovodiče', 'mixed'], ['NASDAQ / tech', 'mixed'], ['AI infrastruktura', 'mixed']];
+          eventType='Technologie a kapitálové výdaje'; horizon='Týdny až čtvrtletí';
+          mechanism='Dopad se přenáší přes výhled tržeb, objednávky, investiční výdaje, dodavatelské řetězce a valuace. U AI a polovodičů rozlišuj skutečné objednávky od oznámení a marketingu.';
+          add('Polovodiče / SOXX','mixed','Citlivé na objednávky, kapacity a exportní omezení.'); add('NVIDIA a AI infrastruktura','mixed','Klíčové jsou výhled dodávek, marže a investice hyperscalerů.'); add('NASDAQ 100','mixed','Sektorové zprávy mohou měnit očekávání růstu a valuací.'); add('Dodavatelé datacenter','mixed','Poptávka po napájení, chlazení a síťové infrastruktuře.');
+          watch=['Objednávky a výhled výrobců čipů','Capex cloudových společností','Exportní licence a dodací lhůty']; confidence='Nízká';
         } else if (category === 'corporate') {
-          explanation = 'Firemní výsledky a výhled mohou přímo ovlivnit akcie dané společnosti a nepřímo celý sektor. Rozhodující bývá rozdíl proti očekávání, marže a výhled managementu.';
-          assets = [['Akcie dané firmy', 'mixed'], ['Příslušný sektor', 'mixed'], ['Širší indexy', 'mixed']];
+          eventType='Firemní výsledky a strategie'; horizon='1–10 obchodních dnů';
+          mechanism='Největší cenový dopad obvykle vzniká rozdílem proti očekávání, změnou výhledu, maržemi a cash flow. Pozitivní absolutní výsledek může akcii přesto srazit, pokud zaostal za konsenzem.';
+          const dir=supportive?'up':restrictive?'down':'mixed'; add('Akcie dotčené společnosti',dir,'Přímý dopad přes očekávané zisky, cash flow a ocenění.'); add('Konkurenti a dodavatelé','mixed','Zpráva může změnit očekávání podílu na trhu a cenové síly.'); add('Sektorový index','mixed','Význam závisí na velikosti firmy a systémovém dopadu.');
+          watch=['Výhled managementu a komentář k maržím','Výsledky proti analytickému konsenzu','Objem obchodů a reakce v další seanci']; confidence=supportive||restrictive?'Střední':'Nízká';
         } else {
-          assets = [['Akciové indexy', 'mixed'], ['Komodity', 'mixed'], ['Měny', 'mixed']];
-          confidence = 'NIŽŠÍ JISTOTA';
+          add('Akciové indexy','mixed','Možný dopad přes sentiment a očekávání růstu.'); add('Komodity','mixed','Sleduj případné dopady na nabídku a poptávku.'); add('Měny','mixed','Měnová reakce závisí na relativním dopadu na ekonomiky.');
+          watch=['Potvrzení události z primárního zdroje','Reakce hlavních tržních indikátorů'];
         }
-        if (category === 'macro' && (hawkish || dovish)) confidence = 'VYŠŠÍ CITLIVOST';
-        if (category === 'geopolitics' && supplyShock) confidence = 'VYŠŠÍ CITLIVOST';
-        return { explanation, assets, confidence };
+        if (detected.length >= 2) confidence = confidence === 'Nízká' ? 'Střední' : 'Vyšší';
+        const score = detected.reduce((n,x)=>n+x.weight,0);
+        const balance = score >= 2 ? 'Převažují pozitivní signály' : score <= -2 ? 'Převažují negativní signály' : 'Smíšené / nejednoznačné signály';
+        return { explanation: mechanism, assets: assets.map(x=>[x.name,x.dir]), confidence: `JISTOTA: ${confidence.toUpperCase()}`, eventType, horizon, watch, balance, signals: detected.map(x=>x.name) };
       }
       function normalizeArticle(article, index) {
         const title = article.title || 'Titulek není k dispozici';
@@ -504,7 +609,7 @@
           <div class="news-top"><div class="news-source"><i class="source-dot"></i><span>${escapeHtml(a.domain)}</span></div><span class="news-time">${escapeHtml(when)}</span></div>
           <h3 class="news-title"><a href="${escapeHtml(safeUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(a.title)}</a></h3>
           <div class="news-tags"><span class="tag category" style="--tag-color:${meta.color}">${meta.icon} ${escapeHtml(meta.label)}</span><span class="tag">GLOBÁLNÍ ZPRÁVA</span></div>
-          <div class="impact-box"><div class="impact-heading"><span class="impact-label"><span class="impact-symbol">↗</span> MOŽNÝ TRŽNÍ DOPAD</span><span class="confidence">${escapeHtml(a.impact.confidence)}</span></div><p class="impact-text">${escapeHtml(a.impact.explanation)}</p><div class="asset-row">${assets}</div></div>
+          <div class="impact-box"><div class="impact-heading"><span class="impact-label"><span class="impact-symbol">↗</span> MOŽNÝ TRŽNÍ DOPAD</span><span class="confidence">${escapeHtml(a.impact.confidence)}</span></div><p class="impact-text">${escapeHtml(a.impact.explanation)}</p><div class="analysis-meta"><span>${escapeHtml(a.impact.eventType || 'Tržní událost')}</span><span>Horizont: ${escapeHtml(a.impact.horizon || 'Krátkodobý')}</span><strong>${escapeHtml(a.impact.balance || 'Smíšený signál')}</strong></div><div class="asset-row">${assets}</div><details class="analysis-details"><summary>Rozbalit investiční tezi a co sledovat</summary><div class="analysis-detail-body"><b>Přenosový mechanismus</b><p>${escapeHtml(a.impact.explanation)}</p><b>Kontrolní body</b><ul>${(a.impact.watch || []).map(x=>`<li>${escapeHtml(x)}</li>`).join('')}</ul><small>Signály v titulku: ${escapeHtml((a.impact.signals || []).join(' · ') || 'bez jednoznačného signálu')}. Směr je scénář, nikoli predikce.</small></div></details></div>
           <div class="news-bottom"><div class="news-bottom-left"><span>${escapeHtml(a.sourceCountry || 'WORLD')}</span><span>·</span><span>OTEVŘÍT PŮVODNÍ ZDROJ ↗</span></div><button class="save-btn ${saved ? 'saved' : ''}" data-save="${escapeHtml(a.id)}" aria-label="${saved ? 'Odebrat z uložených' : 'Uložit zprávu'}">${iconSvg(saved ? 'bookmark-fill' : 'bookmark')} ${saved ? 'ULOŽENO' : 'ULOŽIT'}</button></div>
         </article>`;
       }
